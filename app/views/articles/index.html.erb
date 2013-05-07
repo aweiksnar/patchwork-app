@@ -1,0 +1,39 @@
+<h1>Articles</h1>
+
+<p><%= link_to 'Add a New Article', new_article_url %></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Article title</th>
+      <th>Url</th>
+      <th>Bookmark</th>
+      <th>What description</th>
+      <th>Why description</th>
+      <th>Subtopic</th>
+      <th>Level</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.article_title %></td>
+      <td><%= article.url %></td>
+      <td><%= article.bookmark %></td>
+      <td><%= article.what_description %></td>
+      <td><%= article.why_description %></td>
+      <td><%= article.subtopic.subtopic_title %></td>
+      <td><%= article.display_level %></td>
+
+      <td><%= link_to 'Show', article_url(article) %></td>
+      <td><%= link_to 'Edit', edit_article_url(article) %></td>
+      <td><%= link_to 'Destroy', article_url(article), method: 'delete', data: { confirm: "Do you really want to delete this article?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

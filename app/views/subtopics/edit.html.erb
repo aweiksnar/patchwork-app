@@ -1,0 +1,21 @@
+<h1>Editing Subtopic #<%= @subtopic.id %></h1>
+
+
+<%= form_tag(subtopic_url(@subtopic), method: 'put') do %>
+
+  <div>
+    <%= label_tag :subtopic_title %><br />
+    <%= text_field_tag :subtopic_title, @subtopic.subtopic_title %>
+  </div>
+
+  <div>
+    <%= label_tag :topic_id %><br />
+    <%= number_field_tag :topic_id, @subtopic.topic_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Subtopic" %>
+  </div>
+
+<% end %>

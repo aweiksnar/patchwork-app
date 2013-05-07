@@ -1,0 +1,16 @@
+<h1>Editing Category #<%= @category.id %></h1>
+
+
+<%= form_tag(category_url(@category), method: 'put') do %>
+
+  <div>
+    <%= label_tag :category_title %><br />
+    <%= text_field_tag :category_title, @category.category_title %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Category" %>
+  </div>
+
+<% end %>

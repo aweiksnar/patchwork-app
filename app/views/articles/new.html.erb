@@ -1,0 +1,41 @@
+<h1>New Article</h1>
+
+
+<%= form_tag(articles_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :article_title %><br />
+    <%= text_field_tag :article_title %>
+  </div>
+
+    <div>
+    <%= label_tag :url %><br />
+    <%= text_field_tag :url %>
+  </div>
+
+    <div>
+    <%= label_tag :bookmark %><br />
+    <%= check_box_tag :bookmark? %>
+  </div>
+
+    <div>
+    <%= label_tag :what_description %><br />
+    <%= text_area_tag :what_description %>
+  </div>
+
+    <div>
+    <%= label_tag :why_description %><br />
+    <%= text_area_tag :why_description %>
+  </div>
+
+    <div>
+    <%= label_tag :subtopic_id %><br />
+    <%= number_field_tag :subtopic_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Create Article" %>
+  </div>
+<% end %>

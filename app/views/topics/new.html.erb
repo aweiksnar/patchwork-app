@@ -1,0 +1,21 @@
+<h1>New Topic</h1>
+
+
+<%= form_tag(topics_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :topic_title %><br />
+    <%= text_field_tag :topic_title %>
+  </div>
+
+    <div>
+    <%= label_tag :category_id %><br />
+    <%= number_field_tag :category_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Create Topic" %>
+  </div>
+<% end %>

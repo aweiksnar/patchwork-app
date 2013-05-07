@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patchwork</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav>
+  <ul class="ugly-nav">
+    <h3>Categories</h3>
+    <li><%= link_to 'New', new_category_url %></li>
+    <li><%= link_to 'Index', categories_url %></li>
+  </ul>
+  <ul class="ugly-nav">
+    <h3>Topics</h3>
+    <li><%= link_to 'New', new_topic_url %></li>
+    <li><%= link_to 'Index', topics_url %></li>
+  </ul>
+  <ul class="ugly-nav">
+    <h3>Sub Topic</h3>
+    <li><%= link_to 'New', new_subtopic_url %></li>
+    <li><%= link_to 'Index', subtopics_url %></li>
+  </ul>
+  <ul class="ugly-nav">
+    <h3>Article</h3>
+    <li><%= link_to 'New', new_article_url %></li>
+    <li><%= link_to 'Index', articles_url %></li>
+  </ul>
+</nav>
+<div class="clear"></div>
+
+
+<%= yield %>
+
+</body>
+</html>

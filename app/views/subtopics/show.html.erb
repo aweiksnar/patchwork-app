@@ -1,0 +1,40 @@
+<h1>Subtopic #<%= @subtopic.id %></h1>
+
+<p>
+  <b>Subtopic title:</b>
+  <%= @subtopic.subtopic_title %>
+</p>
+
+<p>
+  <b>Topic:</b>
+  <%= @subtopic.topic.topic_title %>
+</p>
+
+<h2>Add a New Article to <%= @subtopic.subtopic_title %></h2>
+<%= form_tag articles_url do %>
+
+  <%= label_tag :article_title, "Title" %>
+  <%= text_field_tag :article_title  %>
+
+  <%= label_tag :url, "URL" %>
+  <%= text_field_tag :url  %>
+
+  <%= label_tag :what_description, "What Description" %>
+  <%= text_field_tag :what_description  %>
+
+  <%= label_tag :why_description, "Why Description" %>
+  <%= text_field_tag :why_description  %>
+
+  <%= label_tag :level, "Beginner" %>
+  <%= radio_button_tag(:level, 1) %>
+
+  <%= label_tag :level, "Intermediate" %>
+  <%= radio_button_tag(:level, 2) %>
+
+  <%= label_tag :level, "Advanced" %>
+  <%= radio_button_tag(:level, 3) %>
+
+  <%= hidden_field_tag :subtopic_id, @subtopic.id %>
+<%= submit_tag "Add" %>
+<% end %>
+

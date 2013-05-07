@@ -1,0 +1,21 @@
+<h1>Editing Topic #<%= @topic.id %></h1>
+
+
+<%= form_tag(topic_url(@topic), method: 'put') do %>
+
+  <div>
+    <%= label_tag :topic_title %><br />
+    <%= text_field_tag :topic_title, @topic.topic_title %>
+  </div>
+
+  <div>
+    <%= label_tag :category_id %><br />
+    <%= number_field_tag :category_id, @topic.category_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Topic" %>
+  </div>
+
+<% end %>

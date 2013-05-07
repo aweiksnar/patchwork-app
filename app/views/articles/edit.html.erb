@@ -1,0 +1,41 @@
+<h1>Editing Article #<%= @article.id %></h1>
+
+
+<%= form_tag(article_url(@article), method: 'put') do %>
+
+  <div>
+    <%= label_tag :article_title %><br />
+    <%= text_field_tag :article_title, @article.article_title %>
+  </div>
+
+  <div>
+    <%= label_tag :url %><br />
+    <%= text_field_tag :url, @article.url %>
+  </div>
+
+  <div>
+    <%= label_tag :bookmark %><br />
+    <%= check_box_tag :bookmark, @article.bookmark? %>
+  </div>
+
+  <div>
+    <%= label_tag :what_description %><br />
+    <%= text_area_tag :what_description, @article.what_description %>
+  </div>
+
+  <div>
+    <%= label_tag :why_description %><br />
+    <%= text_area_tag :why_description, @article.why_description %>
+  </div>
+
+  <div>
+    <%= label_tag :subtopic_id %><br />
+    <%= number_field_tag :subtopic_id, @article.subtopic_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Article" %>
+  </div>
+
+<% end %>

@@ -1,0 +1,30 @@
+<h1>Subtopics</h1>
+
+<p><%= link_to 'Add a New Subtopic', new_subtopic_url %></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Subtopic title</th>
+      <th>Topic</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @subtopics.each do |subtopic| %>
+    <tr>
+      <td><%= subtopic.subtopic_title %></td>
+      <td><%= subtopic.topic.topic_title %></td>
+
+      <td><%= link_to 'Show', subtopic_url(subtopic) %></td>
+      <td><%= link_to 'Edit', edit_subtopic_url(subtopic) %></td>
+      <td><%= link_to 'Destroy', subtopic_url(subtopic), method: 'delete', data: { confirm: "Do you really want to delete this subtopic?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

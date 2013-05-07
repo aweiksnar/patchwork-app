@@ -1,0 +1,16 @@
+<h1>New Category</h1>
+
+
+<%= form_tag(categories_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :category_title %><br />
+    <%= text_field_tag :category_title %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Create Category" %>
+  </div>
+<% end %>
