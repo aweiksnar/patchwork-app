@@ -10,11 +10,28 @@
   <%= @topic.category.category_title %>
 </p>
 
-<h2>Add a New Sub-Topic to <%= @topic.topic_title %></h2>
+<h2>Subtopics</h2>
+<% @topic.subtopics.each do |subtopic| %>
+  <ul>
+    <li><%= link_to subtopic.subtopic_title,
+            subtopic_url(subtopic) %></li>
+    <ul>
+      <% subtopic.articles.each do |article| %>
+        <li><%= article.article_title %></li>
+
+      <% end %>
+    </ul>
+  </ul>
+
+<% end %>
+
+
+
+<h3>Add a New Sub-Topic to <%= @topic.topic_title %></h3>
 <%= form_tag subtopics_url do %>
-<%= label_tag :subtopic_title, "Title" %>
-<%= text_field_tag :subtopic_title  %>
-<%= hidden_field_tag :topic_id, @topic.id %>
-<%= submit_tag "Add" %>
+  <%= label_tag :subtopic_title, "Title" %>
+  <%= text_field_tag :subtopic_title  %>
+  <%= hidden_field_tag :topic_id, @topic.id %>
+  <%= submit_tag "Add" %>
 <% end %>
 
