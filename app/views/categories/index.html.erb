@@ -15,7 +15,7 @@
   <tbody>
   <% @categories.each do |category| %>
     <tr>
-      <td><%= category.category_title %></td>
+      <td><%= category.title %></td>
 
       <td><%= link_to 'Show', category_url(category) %></td>
       <td><%= link_to 'Edit', edit_category_url(category) %></td>

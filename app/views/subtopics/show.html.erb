@@ -2,19 +2,19 @@
 
 <p>
   <b>Subtopic title:</b>
-  <%= @subtopic.subtopic_title %>
+  <%= @subtopic.title %>
 </p>
 
 <p>
   <b>Topic:</b>
-  <%= @subtopic.topic.topic_title %>
+  <%= @subtopic.topic.title %>
 </p>
 
-<h2>Add a New Article to <%= @subtopic.subtopic_title %></h2>
+<h2>Add a New Article to <%= @subtopic.title %></h2>
 <%= form_tag articles_url do %>
 
-  <%= label_tag :article_title, "Title" %>
-  <%= text_field_tag :article_title  %>
+  <%= label_tag :title, "Title" %>
+  <%= text_field_tag :title  %>
 
   <%= label_tag :url, "URL" %>
   <%= text_field_tag :url  %>

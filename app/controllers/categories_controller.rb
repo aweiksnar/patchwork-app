@@ -14,8 +14,8 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new
-    @category.category_title = params[:category_title]
-    
+    @category.title = params[:category_title]
+
     if @category.save
             redirect_to categories_url
           else
@@ -29,8 +29,8 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find_by_id(params[:id])
-    @category.category_title = params[:category_title]
-    
+    @category.title = params[:category_title]
+
     if @category.save
             redirect_to categories_url
           else

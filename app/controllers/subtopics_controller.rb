@@ -14,9 +14,9 @@ class SubtopicsController < ApplicationController
 
   def create
     @subtopic = Subtopic.new
-    @subtopic.subtopic_title = params[:subtopic_title]
+    @subtopic.title = params[:subtopic_title]
     @subtopic.topic_id = params[:topic_id]
-    
+
     if @subtopic.save
             redirect_to subtopics_url
           else
@@ -30,12 +30,12 @@ class SubtopicsController < ApplicationController
 
   def update
     @subtopic = Subtopic.find_by_id(params[:id])
-    @subtopic.subtopic_title = params[:subtopic_title]
+    @subtopic.title = params[:subtopic_title]
     @subtopic.topic_id = params[:topic_id]
-    
+
     if @subtopic.save
-            redirect_to subtopics_url
-          else
+      redirect_to subtopics_url
+    else
       render 'edit'
     end
   end
@@ -44,5 +44,5 @@ class SubtopicsController < ApplicationController
     @subtopic = Subtopic.find_by_id(params[:id])
     @subtopic.destroy
         redirect_to subtopics_url
-      end
+    end
 end

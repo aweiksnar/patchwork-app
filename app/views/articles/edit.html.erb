@@ -4,8 +4,8 @@
 <%= form_tag(article_url(@article), method: 'put') do %>
 
   <div>
-    <%= label_tag :article_title %><br />
-    <%= text_field_tag :article_title, @article.article_title %>
+    <%= label_tag :title %><br />
+    <%= text_field_tag :title, @article.title %>
   </div>
 
   <div>
@@ -33,7 +33,7 @@
     <%= number_field_tag :subtopic_id, @article.subtopic_id %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Article" %>
   </div>
