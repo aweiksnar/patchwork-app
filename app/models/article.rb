@@ -13,7 +13,7 @@ class Article < ActiveRecord::Base
       return "No Level Selected"
     end
   end
-  validates :article_title, :why_description, :what_description, :url, :presence => true
-  validates :article_title, :why_description, :what_description, :url, :uniqueness => true
+  validates :title, :why_description, :what_description, :url, :presence => true
+  validates :title, :why_description, :what_description, :url, :uniqueness => true
 
 end

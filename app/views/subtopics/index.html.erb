@@ -16,8 +16,8 @@
   <tbody>
   <% @subtopics.each do |subtopic| %>
     <tr>
-      <td><%= subtopic.subtopic_title %></td>
-      <td><%= subtopic.topic.topic_title %></td>
+      <td><%= subtopic.title %></td>
+      <td><%= subtopic.topic.title %></td>
 
       <td><%= link_to 'Show', subtopic_url(subtopic) %></td>
       <td><%= link_to 'Edit', edit_subtopic_url(subtopic) %></td>

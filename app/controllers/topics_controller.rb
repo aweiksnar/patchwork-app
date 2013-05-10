@@ -14,9 +14,9 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new
-    @topic.topic_title = params[:topic_title]
+    @topic.title = params[:topic_title]
     @topic.category_id = params[:category_id]
-    
+
     if @topic.save
             redirect_to topics_url
           else
@@ -30,9 +30,9 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find_by_id(params[:id])
-    @topic.topic_title = params[:topic_title]
+    @topic.title = params[:topic_title]
     @topic.category_id = params[:category_id]
-    
+
     if @topic.save
             redirect_to topics_url
           else

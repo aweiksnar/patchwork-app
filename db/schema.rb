@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507155626) do
+ActiveRecord::Schema.define(:version => 20130510000203) do
 
   create_table "articles", :force => true do |t|
-    t.string  "article_title"
+    t.string  "title"
     t.string  "url"
     t.boolean "bookmark"
     t.text    "what_description"
@@ -24,16 +24,16 @@ ActiveRecord::Schema.define(:version => 20130507155626) do
   end
 
   create_table "categories", :force => true do |t|
-    t.string "category_title"
+    t.string "title"
   end
 
   create_table "subtopics", :force => true do |t|
-    t.string  "subtopic_title"
+    t.string  "title"
     t.integer "topic_id"
   end
 
   create_table "topics", :force => true do |t|
-    t.string  "topic_title"
+    t.string  "title"
     t.integer "category_id"
   end
 

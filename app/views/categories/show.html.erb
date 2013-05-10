@@ -2,14 +2,14 @@
 
 <p>
   <b>Category title:</b>
-  <%= @category.category_title %>
+  <%= @category.title %>
 </p>
 
 
-<h2>Add a New Topic to <%= @category.category_title %></h2>
+<h2>Add a New Topic to <%= @category.title %></h2>
 <%= form_tag topics_url do %>
-<%= label_tag :topic_title, "Title" %>
-<%= text_field_tag :topic_title  %>
+<%= label_tag :title, "Title" %>
+<%= text_field_tag :title  %>
 <%= hidden_field_tag :category_id, @category.id %>
 <%= submit_tag "Add" %>
 <% end %>
