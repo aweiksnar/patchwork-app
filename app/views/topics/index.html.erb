@@ -16,8 +16,8 @@
   <tbody>
   <% @topics.each do |topic| %>
     <tr>
-      <td><%= topic.topic_title %></td>
-      <td><%= topic.category.category_title %></td>
+      <td><%= topic.title %></td>
+      <td><%= topic.category.title %></td>
 
       <td><%= link_to 'Show', topic_url(topic) %></td>
       <td><%= link_to 'Edit', edit_topic_url(topic) %></td>

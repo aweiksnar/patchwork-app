@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new
-    @article.article_title = params[:article_title]
+    @article.title = params[:article_title]
     @article.url = params[:url]
     @article.bookmark = params[:bookmark]
     @article.what_description = params[:what_description]
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find_by_id(params[:id])
-    @article.article_title = params[:article_title]
+    @article.title = params[:article_title]
     @article.url = params[:url]
     @article.bookmark = params[:bookmark]
     @article.what_description = params[:what_description]
