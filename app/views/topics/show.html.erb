@@ -27,7 +27,7 @@
 
 
 
-<h3>Add a New Sub-Topic to <%= @topic.topic_title %></h3>
+<h3>Add a New Sub-Topic to <%= @topic.title %></h3>
 <%= form_tag subtopics_url do %>
   <%= label_tag :title, "Title" %>
   <%= text_field_tag :title  %>
