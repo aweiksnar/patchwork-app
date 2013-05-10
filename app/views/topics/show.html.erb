@@ -2,18 +2,18 @@
 
 <p>
   <b>Topic title:</b>
-  <%= @topic.topic_title %>
+  <%= @topic.title %>
 </p>
 
 <p>
   <b>Category:</b>
-  <%= @topic.category.category_title %>
+  <%= @topic.category.title %>
 </p>
 
-<h2>Add a New Sub-Topic to <%= @topic.topic_title %></h2>
+<h2>Add a New Sub-Topic to <%= @topic.title %></h2>
 <%= form_tag subtopics_url do %>
-<%= label_tag :subtopic_title, "Title" %>
-<%= text_field_tag :subtopic_title  %>
+<%= label_tag :title, "Title" %>
+<%= text_field_tag :title  %>
 <%= hidden_field_tag :topic_id, @topic.id %>
 <%= submit_tag "Add" %>
 <% end %>
