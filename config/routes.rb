@@ -1,5 +1,11 @@
 Patchwork::Application.routes.draw do
 
+  resources :users
+
+
+  resources :votes
+
+
   # Routes for the Article resource:
   # CREATE
   get '/articles/new', controller: 'articles', action: 'new', as: 'new_article'
