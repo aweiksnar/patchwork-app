@@ -4,5 +4,5 @@ class Subtopic < ActiveRecord::Base
   has_many :articles
   belongs_to :topic
 
-  validates :title, :uniqueness => true, :presence => true
+  validates :title, :presence => true
 end
