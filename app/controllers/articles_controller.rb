@@ -35,12 +35,13 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find_by_id(params[:id])
-    @article.title = params[:article_title]
+    @article.title = params[:title]
     @article.url = params[:url]
     @article.bookmark = params[:bookmark]
     @article.what_description = params[:what_description]
     @article.why_description = params[:why_description]
     @article.subtopic_id = params[:subtopic_id]
+    @article.level = params[:level]
 
     if @article.save
             redirect_to articles_url

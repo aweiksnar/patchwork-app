@@ -1,13 +1,7 @@
-<h1>Topic #<%= @topic.id %></h1>
+<h1><%= @topic.title %></h1>
 
 <p>
-  <b>Topic title:</b>
-  <%= @topic.title %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @topic.category.title %>
+  <%= link_to @topic.category.title, category_url(@topic.category.id) %> > <%= @topic.title %>
 </p>
 
 <h2>Subtopics</h2>
@@ -17,12 +11,50 @@
             subtopic_url(subtopic) %></li>
     <ul>
       <% subtopic.articles.each do |article| %>
+
         <li><%= article.title %></li>
 
       <% end %>
+
     </ul>
   </ul>
 
+<% end %>
+
+<h4>Beginner Articles</h4>
+<% @topic.subtopics.each do |subtopic| %>
+
+      <% subtopic.articles.where(:level => 1).each do |article| %>
+
+        <li><%= article.title %></li>
+
+
+
+      <% end %>
+<% end %>
+
+<h4>Intermediate Articles</h4>
+<% @topic.subtopics.each do |subtopic| %>
+
+      <% subtopic.articles.where(:level => 2).each do |article| %>
+
+        <li><%= article.title %></li>
+
+
+
+      <% end %>
+<% end %>
+
+<h4>Advanced Articles</h4>
+<% @topic.subtopics.each do |subtopic| %>
+
+      <% subtopic.articles.where(:level => 3).each do |article| %>
+
+        <li><%= article.title %></li>
+
+
+
+      <% end %>
 <% end %>
 
 

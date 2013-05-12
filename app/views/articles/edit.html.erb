@@ -33,6 +33,11 @@
     <%= number_field_tag :subtopic_id, @article.subtopic_id %>
   </div>
 
+  <div>
+    <%= label_tag :level %><br />
+    <%= number_field_tag :level, @article.level %>
+  </div>
+
 
   <div>
     <%= submit_tag "Update Article" %>

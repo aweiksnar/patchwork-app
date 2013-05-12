@@ -13,6 +13,7 @@ class Article < ActiveRecord::Base
       return "No Level Selected"
     end
   end
+  #removed titles from validations
   validates :title, :why_description, :what_description, :url, :presence => true
   validates :title, :why_description, :what_description, :url, :uniqueness => true
 
