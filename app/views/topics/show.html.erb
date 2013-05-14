@@ -1,69 +1,72 @@
+
+<div class="row">
 <h1><%= @topic.title %></h1>
+<p><%= link_to @topic.category.title, category_url(@topic.category.id) %> > <%= @topic.title %></p>
 
-<p>
-  <%= link_to @topic.category.title, category_url(@topic.category.id) %> > <%= @topic.title %>
-</p>
+<aside class="span3">
+  <h2>Subtopics</h2>
+  <div class="accordion" id="accordion2">
+  <% @topic.subtopics.each do |subtopic| %>
+    <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= subtopic.id %>"><%= subtopic.title %></a>
+    </div>
+    <div id="collapse<%= subtopic.id %>" class="accordion-body collapse">
+      <div class="accordion-inner">
+          <ul>
+            <% subtopic.articles.each do |article| %>
+              <li><%= link_to article.title, article_url(article.id) %></li>
+            <% end %>
+          </ul>
 
-<h2>Subtopics</h2>
-<% @topic.subtopics.each do |subtopic| %>
-  <ul>
-    <li><%= link_to subtopic.title,
-            subtopic_url(subtopic) %></li>
-    <ul>
-      <% subtopic.articles.each do |article| %>
+      </div>
+    </div>
+  </div>
 
-        <li><%= article.title %></li>
 
-      <% end %>
+  <% end %>
+</aside>
 
-    </ul>
-  </ul>
 
-<% end %>
 
-<h4>Beginner Articles</h4>
-<% @topic.subtopics.each do |subtopic| %>
+<section id="content" class="span6">
+  <h4>Beginner Articles</h4>
 
+  <% @topic.subtopics.each do |subtopic| %>
+    <ul class="unstyled">
       <% subtopic.articles.where(:level => 1).each do |article| %>
-
-        <li><%= article.title %></li>
-
-
-
+      <li><%= link_to article.title, article_url(article.id) %></li>
       <% end %>
-<% end %>
+    </ul>
+  <% end %>
 
-<h4>Intermediate Articles</h4>
-<% @topic.subtopics.each do |subtopic| %>
+  <h4>Intermediate Articles</h4>
+  <% @topic.subtopics.each do |subtopic| %>
+      <ul class="unstyled">
+    <% subtopic.articles.where(:level => 2).each do |article| %>
+      <li><%= link_to article.title, article_url(article.id) %></li>
+    <% end %>
+  </ul>
+  <% end %>
 
-      <% subtopic.articles.where(:level => 2).each do |article| %>
+  <h4>Advanced Articles</h4>
+  <% @topic.subtopics.each do |subtopic| %>
+      <ul class="unstyled">
+    <% subtopic.articles.where(:level => 3).each do |article| %>
+      <li><%= link_to article.title, article_url(article.id) %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</section>
 
-        <li><%= article.title %></li>
+  <div id="new-content" class="span3">
+    <h3>Add a New Sub-Topic to <%= @topic.title %></h3>
+    <%= form_tag subtopics_url do %>
+      <%= label_tag :title, "Title" %>
+      <%= text_field_tag :title  %>
+      <%= hidden_field_tag :topic_id, @topic.id %>
+      <%= submit_tag "Add" %>
+    <% end %>
+  </div>
 
-
-
-      <% end %>
-<% end %>
-
-<h4>Advanced Articles</h4>
-<% @topic.subtopics.each do |subtopic| %>
-
-      <% subtopic.articles.where(:level => 3).each do |article| %>
-
-        <li><%= article.title %></li>
-
-
-
-      <% end %>
-<% end %>
-
-
-
-<h3>Add a New Sub-Topic to <%= @topic.title %></h3>
-<%= form_tag subtopics_url do %>
-  <%= label_tag :title, "Title" %>
-  <%= text_field_tag :title  %>
-  <%= hidden_field_tag :topic_id, @topic.id %>
-  <%= submit_tag "Add" %>
-<% end %>
-
+</div><!--end row -->
