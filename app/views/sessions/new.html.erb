@@ -1,0 +1,11 @@
+<%= notice %>
+<h1>Sign In</h1>
+<%= form_tag "/sessions" do %>
+  <%= label_tag :email, "Email:" %>
+  <%= email_field_tag :email %>
+
+  <%= label_tag :password, "Password:" %>
+  <%= password_field_tag :password %>
+
+  <p><%= submit_tag "Submit", :class => "btn btn-success" %></p>
+<% end %>
