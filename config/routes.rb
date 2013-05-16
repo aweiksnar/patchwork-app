@@ -1,15 +1,16 @@
 Patchwork::Application.routes.draw do
-
   resources :users
-
-
   resources :votes
 
+  get "/signin" => "Sessions#new", as: "new_session"
+  post "/sessions" => "Sessions#create"
+  delete "/sessions" => "Sessions#destroy", as: "sessions"
 
   # Routes for the Article resource:
   # CREATE
   get '/articles/new', controller: 'articles', action: 'new', as: 'new_article'
   post '/articles', controller: 'articles', action: 'create'
+
 
   # READ
   get '/articles', controller: 'articles', action: 'index', as: 'articles'
