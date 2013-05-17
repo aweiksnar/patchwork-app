@@ -11,7 +11,53 @@
  *= require_self
  *= require_tree .
  */
-html {margin: 20px;}
-h3 {margin: 0;}
-.ugly-nav {float:left; margin:0 20px; padding: 0;}
+
+ol.welcome-list {font-weight:bold; margin: 0 0 0 25px;}
+
+.cursive {font-family: 'Courgette',cursive; font-weight: lighter;}
+section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
+
+
 .clear {clear:both;}
+
+.subtopic-intro {
+  background-color: #EBEBEB;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: inset 0px 0px 4px 4px #ccc;
+  box-shadow: inset 0px 0px 4px 4px #ccc;
+  padding: 20px;
+}
+
+#content {}
+#subtopic-content {}
+
+#subtopic-aside {border: 1px solid #DDDDDD;}
+
+.grey-gradient {
+  -webkit-box-shadow: 3px 3px 5px 1px #cccccc;
+  box-shadow: 3px 3px 5px 1px #cccccc;
+}
+
+.radius {
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+
+.bgwhite {background-color:#fff;}
+
+.p5 {padding:5px;}
+.p10 {padding:10px;}
+.p15 {padding:15px;}
+.p20 {padding:20px;}
+
+
+.m10 {margin: 10px;}
+.m10-top {margin-top: 10px}
+.m15-top {margin-top: 15px}
+.m40-top {margin-top: 40px}
+
+footer {background-color:#EBEBEB; height:200px;}
+
+

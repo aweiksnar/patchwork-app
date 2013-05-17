@@ -1,72 +1,153 @@
+<div class="container">
+  <div class="row">
+    <div class="span5">
+      <h1><%= @topic.title %></h1>
+      <p><%= link_to @topic.category.title, category_url(@topic.category.id) %> > <%= @topic.title %></p>
+    </div>
+    <div class="span7">
+      <p class="m15-top">Ruby is a dynamic, reflective, general-purpose object-oriented programming language that combines syntax inspired by Perl with Smalltalk-like features. It was also influenced by Eiffel and Lisp.[8] Ruby was first designed and developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.</p>
+    </div>
+  </div>
+</div>
+
 
 <div class="row">
-<h1><%= @topic.title %></h1>
-<p><%= link_to @topic.category.title, category_url(@topic.category.id) %> > <%= @topic.title %></p>
-
-<aside class="span3">
-  <h2>Subtopics</h2>
-  <div class="accordion" id="accordion2">
-  <% @topic.subtopics.each do |subtopic| %>
-    <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= subtopic.id %>"><%= subtopic.title %></a>
-    </div>
-    <div id="collapse<%= subtopic.id %>" class="accordion-body collapse">
-      <div class="accordion-inner">
-          <ul>
-            <% subtopic.articles.each do |article| %>
-              <li><%= link_to article.title, article_url(article.id) %></li>
-            <% end %>
+  <div>
+  <div class="tabbable"> <!-- Only required for left/right tabs -->
+    <div class="container">
+      <div class="row m40-top">
+        <div class="span12">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab"><h4>Welcome</h4></a></li>
+            <li><a href="#tab2" data-toggle="tab"><h4>Beginner</h4></a></li>
+            <li><a href="#tab3" data-toggle="tab"><h4>Intermediate</h4></a></li>
+            <li><a href="#tab4" data-toggle="tab"><h4>Advanced</h4></a></li>
           </ul>
-
+        </div>
       </div>
     </div>
+
+  <section>
+
+    <div class="tab-content bgwhite">
+      <div class="tab-pane active" id="tab1">
+        <div class="m10-top container ">
+          <div class="row"><!--added to center contents within tab -->
+            <div class="span9">
+
+              <div id="subtopic-content" class="subtopic-intro">
+                    <h1 class="cursive">Hello!</h1>
+                    <p>Get ready to learn some <%= @topic.title %>! You can start by selecting the beginner tab above. If you're already familiar with some of the basics of <%= @topic.title %> check out the Intermediate &amp; Advanced tabs to find subtopics more to your interest.</p>
+
+                    <h3>Subtopics</h3>
+                    <p>Once you've selected the article level from the tabs above look to the right to select a subtopic of that section. You'll be greeted by the top 3 articles of that subtopic within <%= @topic.title %>.</p>
+
+                    <h3>Something missing?</h3>
+                    <p>If you're noticing that one of the skill levels is missing a concept please help us expand the section by <strong>adding a subtopic</strong>. Even if you don't know specifically what articles belong there it's ok.</p>
+
+                    <p>If you're in a subtopic and have a great article that you believe belongs in the top 3 you can submit that too! We're looking for <strong>3 things</strong>:</p>
+                    <ol class="welcome-list">
+                      <li>The article's title</li>
+                      <li>The article URL</li>
+                      <li>And your reason for submitting it. Explaining why you think it's a great resource and how it's helpful clarifys it's purpose to users and helps you get votes.</li>
+                    </ol>
+              </div>
+            </div><!--column end-->
+
+            <div class="span3">
+              <%= render 'aside' %>
+            </div><!--column end-->
+
+          </div>
+        </div><!-- end of crazy centering -->
+      </div>
+
+      <div class="tab-pane" id="tab2">
+          <div class="container">
+              <div class="row">
+                  <div class="span9">
+                    <% @topic.subtopics.each do |subtopic| %>
+                      <ul class="unstyled">
+                        <% subtopic.articles.where(:level => 1).each do |article| %>
+                          <li><%= link_to article.title, article_url(article.id) %></li>
+                        <% end %>
+                      </ul>
+                    <% end %>
+                  </div>
+
+                  <div class="span3">
+                    <%= render 'aside' %>
+                  </div><!--column end-->
+                </div>
+              </div>
+          </div>
+
+        <div class="tab-pane" id="tab3">
+          <div class="container">
+              <div class="row">
+                  <div class="span9">
+                    <% @topic.subtopics.each do |subtopic| %>
+                      <ul class="unstyled">
+                        <% subtopic.articles.where(:level => 2).each do |article| %>
+                          <li><%= link_to article.title, article_url(article.id) %></li>
+                        <% end %>
+                      </ul>
+                    <% end %>
+                  </div>
+
+                  <div class="span3">
+                    <%= render 'aside' %>
+                  </div><!--column end-->
+                </div>
+              </div>
+          </div>
+
+
+
+        <div class="tab-pane" id="tab4">
+          <div class="container">
+              <div class="row">
+                  <div class="span9">
+                    <% @topic.subtopics.each do |subtopic| %>
+                      <ul class="unstyled">
+                        <% subtopic.articles.where(:level => 3).each do |article| %>
+                          <li><%= link_to article.title, article_url(article.id) %></li>
+                        <% end %>
+                      </ul>
+                    <% end %>
+                  </div>
+
+                  <div class="span3">
+                    <%= render 'aside' %>
+                  </div><!--column end-->
+                </div>
+              </div>
+          </div>
   </div>
 
 
-  <% end %>
-</aside>
 
-
-
-<section id="content" class="span6">
-  <h4>Beginner Articles</h4>
-
-  <% @topic.subtopics.each do |subtopic| %>
-    <ul class="unstyled">
-      <% subtopic.articles.where(:level => 1).each do |article| %>
-      <li><%= link_to article.title, article_url(article.id) %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <h4>Intermediate Articles</h4>
-  <% @topic.subtopics.each do |subtopic| %>
-      <ul class="unstyled">
-    <% subtopic.articles.where(:level => 2).each do |article| %>
-      <li><%= link_to article.title, article_url(article.id) %></li>
-    <% end %>
-  </ul>
-  <% end %>
-
-  <h4>Advanced Articles</h4>
-  <% @topic.subtopics.each do |subtopic| %>
-      <ul class="unstyled">
-    <% subtopic.articles.where(:level => 3).each do |article| %>
-      <li><%= link_to article.title, article_url(article.id) %></li>
-    <% end %>
-  </ul>
-  <% end %>
 </section>
+</div>
 
-  <div id="new-content" class="span3">
-    <h3>Add a New Sub-Topic to <%= @topic.title %></h3>
+</div><!--end row -->
+
+<div id="subtopic-form" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="subtopic-add-form" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add a New Sub-Topic to <%= @topic.title %></h3>
+  </div>
+  <div class="modal-body">
     <%= form_tag subtopics_url do %>
       <%= label_tag :title, "Title" %>
       <%= text_field_tag :title  %>
       <%= hidden_field_tag :topic_id, @topic.id %>
-      <%= submit_tag "Add" %>
-    <% end %>
-  </div>
 
-</div><!--end row -->
+  </div>
+  <div class="modal-footer">
+    <%= submit_tag "Add", :class => "btn btn-success" %>
+    <% end %>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
