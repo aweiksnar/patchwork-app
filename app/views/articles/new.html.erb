@@ -1,41 +1,39 @@
 <h1>New Article</h1>
 
-
-<%= form_tag(articles_url, method: 'post') do %>
-
+<%= form_for @article do |f| %>
 
   <div>
-    <%= label_tag :title %><br />
-    <%= text_field_tag :title %>
+    <%= f.label :title %><br/>
+    <%= f.text_field :title %>
   </div>
 
-    <div>
-    <%= label_tag :url %><br />
-    <%= text_field_tag :url %>
+  <div>
+    <%= f.label :url %><br/>
+    <%= f.text_field :url %>
   </div>
 
-    <div>
-    <%= label_tag :bookmark %><br />
-    <%= check_box_tag :bookmark? %>
+  <div>
+    <%= f.label :bookmark %><br/>
+    <%= f.check_box :bookmark? %>
   </div>
 
-    <div>
-    <%= label_tag :what_description %><br />
-    <%= text_area_tag :what_description %>
+  <div>
+    <%= f.label :description %><br/>
+    <%= f.text_area :description %>
   </div>
 
-    <div>
-    <%= label_tag :why_description %><br />
-    <%= text_area_tag :why_description %>
+  <div>
+    <%= f.label :subtopic_id %><br/>
+    <%= f.number_field :subtopic_id %>
   </div>
 
-    <div>
-    <%= label_tag :subtopic_id %><br />
-    <%= number_field_tag :subtopic_id %>
+  <div>
+    <%= f.label :level  %>
+    <%= f.select :level, options_for_select([['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]], 1) %>
   </div>
 
 
   <div>
-    <%= submit_tag "Create Article" %>
+    <%= f.submit "Create Article" %>
   </div>
 <% end %>

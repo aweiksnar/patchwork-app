@@ -13,14 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new
-    @article.title = params[:article_title]
-    @article.url = params[:url]
-    @article.bookmark = params[:bookmark]
-    @article.what_description = params[:what_description]
-    @article.why_description = params[:why_description]
-    @article.subtopic_id = params[:subtopic_id]
-    @article.level = params[:level]
+    @article = Article.new(params[:article])
 
     if @article.save
             redirect_to articles_url
@@ -38,8 +31,7 @@ class ArticlesController < ApplicationController
     @article.title = params[:title]
     @article.url = params[:url]
     @article.bookmark = params[:bookmark]
-    @article.what_description = params[:what_description]
-    @article.why_description = params[:why_description]
+    @article.description = params[:description]
     @article.subtopic_id = params[:subtopic_id]
     @article.level = params[:level]
 

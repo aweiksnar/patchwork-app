@@ -14,7 +14,7 @@ class SubtopicsController < ApplicationController
 
   def create
     @subtopic = Subtopic.new
-    @subtopic.title = params[:subtopic_title]
+    @subtopic.title = params[:title]
     @subtopic.topic_id = params[:topic_id]
 
     if @subtopic.save
@@ -30,7 +30,7 @@ class SubtopicsController < ApplicationController
 
   def update
     @subtopic = Subtopic.find_by_id(params[:id])
-    @subtopic.title = params[:subtopic_title]
+    @subtopic.title = params[:title]
     @subtopic.topic_id = params[:topic_id]
 
     if @subtopic.save
