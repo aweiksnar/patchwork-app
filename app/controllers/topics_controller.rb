@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new
-    @topic.title = params[:topic_title]
+    @topic.title = params[:title]
     @topic.category_id = params[:category_id]
 
     if @topic.save
@@ -30,7 +30,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find_by_id(params[:id])
-    @topic.title = params[:topic_title]
+    @topic.title = params[:title]
     @topic.category_id = params[:category_id]
 
     if @topic.save

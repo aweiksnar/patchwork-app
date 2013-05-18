@@ -11,16 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516185139) do
+ActiveRecord::Schema.define(:version => 20130518020101) do
 
   create_table "articles", :force => true do |t|
     t.string  "title"
     t.string  "url"
     t.boolean "bookmark"
-    t.text    "what_description"
-    t.text    "why_description"
     t.integer "subtopic_id"
     t.integer "level"
+    t.text    "description"
   end
 
   create_table "categories", :force => true do |t|

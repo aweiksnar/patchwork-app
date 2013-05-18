@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  attr_accessible :title, :url, :bookmark, :description , :subtopic_id, :level
   belongs_to :subtopic
 
   def display_level
@@ -14,7 +15,7 @@ class Article < ActiveRecord::Base
     end
   end
   #removed titles from validations
-  validates :title, :why_description, :what_description, :url, :presence => true
-  validates :title, :why_description, :what_description, :url, :uniqueness => true
+  validates :title, :description, :url, :presence => true
+  validates :title, :description, :url, :uniqueness => true
 
 end
