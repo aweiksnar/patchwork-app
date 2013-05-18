@@ -23,21 +23,21 @@ categories.each do |category_hash|
 end
 
 topics = [
-  {:title => "Hockey", :category_id => 1 },
-  {:title => "Sailing", :category_id => 1},
-  {:title => "Golf", :category_id => 1 },
-  {:title => "Ruby", :category_id => 2},
-  {:title => "HTML", :category_id => 2},
-  {:title => "Python", :category_id => 2},
-  {:title => "Italian", :category_id => 3 },
-  {:title => "Dutch", :category_id => 3 },
-  {:title => "Japanese", :category_id => 3 },
-  {:title => "Painting", :category_id => 4 },
-  {:title => "Drawing", :category_id => 4 },
-  {:title => "Digital", :category_id => 4 },
-  {:title => "Guitar", :category_id => 5},
-  {:title => "Piano", :category_id => 5 },
-  {:title => "Drums", :category_id => 5 },
+  {:title => "Hockey", :category_id => 1, :description => "Ice hockey, commonly referred to by its North American fans as Hockey, is a team sport played on ice, in which skaters use wooden or composite sticks to shoot a hard rubber hockey puck into their opponent's net to score points. In Canada and the United States, where the sport is very popular, it is known simply as hockey; however, the name ice hockey is used by the governing body IIHF and in most other countries. There the word hockey is generally reserved for another form of the sport, such as field hockey or roller hockey. The game is played between two teams with six players (five skaters and a goalie) on the ice. A team usually consists of four lines of three forwards, three pairs of defensemen, and two goalies. Five members of each team skate up and down the ice trying to take the puck and score a goal against the opposing team. Each team has a goaltender who tries to stop the puck from going into the goal or net." },
+  {:title => "Sailing", :category_id => 1, :description => "Sailing is the propulsion of a vehicle and the control of its movement with large (usually fabric) foils called sails. By changing the rigging, rudder, and sometimes the keel or centreboard, a sailor manages the force of the wind on the sails in order to move the vessel relative to its surrounding medium (typically water, but also land and ice) and change its direction and speed. Mastery of the skill requires experience in varying wind and sea conditions, as well as knowledge concerning sailboats themselves and an understanding of ones surroundings."},
+  {:title => "Golf", :category_id => 1, :description => "Golf is a precision club and ball sport in which competing players (or golfers) use many types of clubs to hit balls into a series of holes on a course using the fewest number of strokes. Golf is defined, in the rules of golf, as playing a ball with a club from the teeing ground into the hole by a stroke or successive strokes in accordance with the Rules." },
+  {:title => "Ruby", :category_id => 2, :description => "A ruby is a pink to blood-red colored gemstone, a variety of the mineral corundum (aluminium oxide). The red color is caused mainly by the presence of the element chromium. Its name comes from ruber, Latin for red. Other varieties of gem-quality corundum are called sapphires. The ruby is considered one of the four precious stones, together with the sapphire, the emerald, and the diamond."},
+  {:title => "HTML", :category_id => 2, :description => "HyperText Markup Language (HTML) is the main markup language for creating web pages and other information that can be displayed in a web browser."},
+  {:title => "Python", :category_id => 2, :description => "Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. Python's syntax allows programmers to express concepts in fewer lines of code than would be possible in languages such as C,[11][12] and the language provides constructs intended to enable clear programs on both a small and large scale.[13]" },
+  {:title => "Italian", :category_id => 3, :description => "Italian ( italiano or lingua italiana) is a Romance language spoken mainly in Europe: Italy, Switzerland, San Marino, Vatican City, by minorities in Malta, Monaco, Croatia, Slovenia, France, Libya, Eritrea, and Somalia,[3] and by expatriate communities in the Americas and Australia. Many speakers are native bilinguals of both standardised Italian and other regional languages.[4]" },
+  {:title => "Dutch", :category_id => 3, :description => "Dutch is a West Germanic language and the native language of most of the population of the Netherlands, and about sixty percent of the populations of Belgium and Suriname, the three member states of the Dutch Language Union. Most speakers live in the European Union, where it is a first language for about 23 million and a second language for another 5 million people.[1][2] It also holds official status in the Caribbean island nations of Aruba, Curaçao, and Sint Maarten, while historical minorities remain in parts of France and Germany, and to a lesser extent, in Indonesia,[n 1] and up to half a million native Dutch speakers may be living in the United States, Canada, and Australia.[n 2] The Cape Dutch dialects of Southern Africa have been standardised into Afrikaans, a mutually intelligible daughter language of Dutch[n 3] which today is spoken to some degree by an estimated total of 15 to 23 million people in South Africa and Namibia."},
+  {:title => "Japanese", :category_id => 3, :description => "Japanese  is an East Asian language spoken by about 125 million speakers, primarily in Japan, where it is the national language. It is a member of the Japonic (or Japanese-Ryukyuan) language family, whose relation to other language groups, particularly to Korean and the suggested Altaic language family, is debated." },
+  {:title => "Painting", :category_id => 4, :description => "Painting is the practice of applying paint, pigment, color or other medium[1] to a surface (support base). The medium is commonly applied to the base with a brush but other implements, such as knives, sponges, and airbrushes, can be used. In art, the term painting describes both the act and the result of the action. However, painting is also used outside of art as a common trade among craftsmen and builders. Paintings may have for their support such surfaces as walls, paper, canvas, wood, glass, lacquer, clay, leaf, copper or concrete, and may incorporate multiple other materials including sand, clay, paper, gold leaf as well as objects." },
+  {:title => "Drawing", :category_id => 4, :description => "Drawing is a form of visual art that makes use of any number of drawing instruments to mark a two-dimensional medium. Instruments used include graphite pencils, pen and ink, inked brushes, wax color pencils, crayons, charcoal, chalk, pastels, various kinds of erasers, markers, styluses, and various metals (such as silverpoint). An artist who practices or works in drawing may be called a draftsman or draughtsman.[1]" },
+  {:title => "Digital", :category_id => 4, :description => "A digital system is a technology that uses discrete, discontinuous representations of information or works in a discontinuous manner. This is contrasted with continuous, or analog systems which behave in a continuous manner, or represent information using a continuous function."  },
+  {:title => "Guitar", :category_id => 5, :description => "The guitar is a string instrument of the chordophone family constructed from wood and strung with either nylon or steel strings. The modern guitar was preceded by the lute, vihuela, four-course renaissance guitar and five-course baroque guitar, all of which contributed to the development of the modern six-string instrument."},
+  {:title => "Piano", :category_id => 5, :description => "The piano is a musical instrument played by means of a keyboard. It is one of the most popular instruments in the world. Widely used in classical and jazz music for solo performances, ensemble use, chamber music and accompaniment, the piano is also popular as a tool for composing and rehearsal. Although not portable and often expensive, the piano's versatility and ubiquity have made it one of the world's most familiar musical instruments."  },
+  {:title => "Drums", :category_id => 5, :description =>"A drum kit, drum set[1] or trap set is a collection of drums and other percussion instruments set up to be played by a single player."  },
 ]
 
 Topic.destroy_all
@@ -45,6 +45,7 @@ topics.each do |topic_hash|
   t = Topic.new
   t.title = topic_hash[:title]
   t.category_id = topic_hash[:category_id]
+  t.description = topic_hash[:description]
   t.save
 end
 
