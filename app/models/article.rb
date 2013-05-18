@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
   attr_accessible :title, :url, :bookmark, :description , :subtopic_id, :level
   belongs_to :subtopic
+  belongs_to :topic
 
   def display_level
     l =  Article.find_by_level(self.level).level
