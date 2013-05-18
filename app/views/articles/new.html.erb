@@ -23,8 +23,11 @@
   </div>
 
   <div>
-    <%= f.label :subtopic_id %><br/>
-    <%= f.number_field :subtopic_id %>
+  <%= f.select :topic, options_from_collection_for_select(Topic.all, "id", "title") %>
+  </div>
+
+  <div>
+  <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.all, "id", "title") %>
   </div>
 
   <div>

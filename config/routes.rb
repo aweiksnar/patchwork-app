@@ -2,6 +2,8 @@ Patchwork::Application.routes.draw do
   resources :users
   resources :votes
 
+  root :to => "Topics#index"
+
   get "/signin" => "Sessions#new", as: "new_session"
   post "/sessions" => "Sessions#create"
   delete "/sessions" => "Sessions#destroy", as: "sessions"
