@@ -5,7 +5,7 @@
       <p><%= link_to @topic.category.title, category_url(@topic.category.id) %> > <%= @topic.title %></p>
     </div>
     <div class="span7">
-      <p class="m15-top">Ruby is a dynamic, reflective, general-purpose object-oriented programming language that combines syntax inspired by Perl with Smalltalk-like features. It was also influenced by Eiffel and Lisp.[8] Ruby was first designed and developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.</p>
+      <p class="m15-top"><%= @topic.description %></p>
     </div>
   </div>
 </div>

@@ -16,6 +16,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new
     @topic.title = params[:title]
     @topic.category_id = params[:category_id]
+    @topic.description = params[:description]
 
     if @topic.save
             redirect_to topics_url
@@ -32,6 +33,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find_by_id(params[:id])
     @topic.title = params[:title]
     @topic.category_id = params[:category_id]
+    @topic.description = params[:description]
 
     if @topic.save
             redirect_to topics_url
