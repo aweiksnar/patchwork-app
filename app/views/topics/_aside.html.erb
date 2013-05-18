@@ -1,14 +1,14 @@
-        <aside id="subtopic-aside" class="span3 p10 radius">
-          <h2>Subtopics</h2>
-          <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
+<aside id="subtopic-aside" class="span3 p10 radius">
+  <h2>Subtopics</h2>
+  <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
 
-          <div class="accordion" id="accordion2">
-            <% @topic.subtopics.each do |subtopic| %>
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= subtopic.id %>"><%= subtopic.title %></a></li>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </aside>
+  <div class="accordion" id="accordion2">
+    <% @topic.subtopics.each do |subtopic| %>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= subtopic.id %>"><%= subtopic.title %></a></li>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</aside>
