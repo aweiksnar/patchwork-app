@@ -54,10 +54,14 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.3)
+    nokogiri (1.5.9)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-pjax (0.7.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.3)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -108,6 +112,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   jquery-rails
+  rack-pjax
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   sqlite3

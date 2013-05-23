@@ -6,6 +6,10 @@ class SubtopicsController < ApplicationController
 
   def show
     @subtopic = Subtopic.find_by_id(params[:id])
+
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
   end
 
   def new
