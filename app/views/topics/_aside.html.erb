@@ -6,7 +6,11 @@
     <% @topic.subtopics.each do |subtopic| %>
       <div class="accordion-group">
         <div class="accordion-heading">
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= subtopic.id %>"><%= subtopic.title %></a></li>
+       <!--    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%# subtopic.id %>"><%# subtopic.title %></a> -->
+
+          <%= link_to "#{subtopic.title}", article_list_url({:subtopic_id => subtopic.id}), :class => "accordion-toggle"%>
+
+        </li>
         </div>
       </div>
     <% end %>

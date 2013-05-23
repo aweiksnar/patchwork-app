@@ -47,5 +47,14 @@ class TopicsController < ApplicationController
     @topic = Topic.find_by_id(params[:id])
     @topic.destroy
         redirect_to topics_url
-      end
+  end
+
+  def article_list
+    @articles = Article.where(:level => 1)
+
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
+  end
+
 end

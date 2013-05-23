@@ -68,15 +68,7 @@
                   <div class="span9">
                     <div id="main">
                       <a href="#article_form" role="button" class="btn btn-success" data-toggle="modal" data-target="#article-form">Submit an Article</a>
-                      <% @topic.subtopics.each do |subtopic| %>
-                        <ul class="unstyled">
-                          <% subtopic.articles.where(:level => 1).each_with_index do |article, i| %>
-                              <li><%= link_to article.title, article_url(article.id) %></li>
-                              <li><%= article.url %></li>
-                              <li><%= article.description %></li>
-                          <% end %>
-                        </ul>
-                      <% end %>
+
                     </div><!--main div end -->
                   </div>
 
@@ -93,13 +85,7 @@
               <div class="row">
                   <div class="span9">
                     <div id="main">
-                    <% @topic.subtopics.each do |subtopic| %>
-                      <ul class="unstyled">
-                        <% subtopic.articles.where(:level => 2).each do |article| %>
-                          <li><%= link_to article.title, article_url(article.id) %></li>
-                        <% end %>
-                      </ul>
-                    <% end %>
+
                   </div>
                   </div>
 
@@ -116,13 +102,8 @@
           <div class="container">
               <div class="row">
                   <div class="span9">
-                    <% @topic.subtopics.each do |subtopic| %>
-                      <ul class="unstyled">
-                        <% subtopic.articles.where(:level => 3).each do |article| %>
-                          <li><%= link_to article.title, article_url(article.id) %></li>
-                        <% end %>
-                      </ul>
-                    <% end %>
+                    <div id="main">
+                    </div>
                   </div>
 
                   <div class="span3">

@@ -13,7 +13,6 @@ Patchwork::Application.routes.draw do
   get '/articles/new', controller: 'articles', action: 'new', as: 'new_article'
   post '/articles', controller: 'articles', action: 'create'
 
-
   # READ
   get '/articles', controller: 'articles', action: 'index', as: 'articles'
   get '/articles/:id', controller: 'articles', action: 'show', as: 'article'
@@ -49,6 +48,7 @@ Patchwork::Application.routes.draw do
   post '/topics', controller: 'topics', action: 'create'
 
   # READ
+  get '/topics/article_list', controller: 'topics', action: 'article_list', as: 'article_list'
   get '/topics', controller: 'topics', action: 'index', as: 'topics'
   get '/topics/:id', controller: 'topics', action: 'show', as: 'topic'
 
