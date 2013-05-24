@@ -8,7 +8,7 @@
         <div class="accordion-heading">
        <!--    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%# subtopic.id %>"><%# subtopic.title %></a> -->
 
-          <%= link_to "#{subtopic.title}", article_list_url({:subtopic_id => subtopic.id}), :class => "accordion-toggle"%>
+          <%= link_to "#{subtopic.title}", beg_articles_url({:subtopic_id => subtopic.id}), :class => "accordion-toggle"%>
 
         </li>
         </div>
