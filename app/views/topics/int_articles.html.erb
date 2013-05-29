@@ -18,11 +18,10 @@
       <div class="row m40-top">
         <div class="span12">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab1" data-toggle="tab"><h4>Welcome</h4></a></li>
-            <li><a href="#tab2" data-toggle="tab"><h4>Beginner</h4></a></li>
-
-            <li><a href="#tab3" data-toggle="tab"><h4>Intermediate</h4></a></li>
-            <li><a href="#tab4" data-toggle="tab"><h4>Advanced</h4></a></li>
+            <li><a href="/topics/<%= @topic.id %>/"><h4>Welcome</h4></a></li>
+            <li><a href="/topics/<%= @topic.id %>/beg_articles.html"><h4>Beginner</h4></a></li>
+            <li class="active"><h4>Intermediate</h4></li>
+            <li><a href="/topics/<%= @topic.id %>/adv_articles.html"><h4>Advanced</h4></a></li>
           </ul>
         </div>
       </div>
@@ -30,46 +29,54 @@
 
   <section>
 
-      <div class="tab-pane" id="tab2">
-          <div class="container">
-              <div class="row">
-                  <div class="span9">
-                    <div id="main">
-                      <a href="#article_form" role="button" class="btn btn-success" data-toggle="modal" data-target="#article-form">Submit an Article</a>
-                      <% @articles.where(:subtopic_id => params[:subtopic_id]).each do |article| %>
-                        <p><%= link_to article.title, article.url, :target => "_blank" %></p>
-                        <p><%= article.description %></p>
-                      <% end %>
+    <div class="tab-content bgwhite">
+      <div class="tab-pane active">
+        <div class="m10-top container ">
+          <div class="row"><!--added to center contents within tab -->
+            <div class="span9">
+              <div id="main">
+                <a href="#article_form" role="button" class="btn btn-success" data-toggle="modal" data-target="#article-form">Submit an Article</a>
+                <% @articles.where(:subtopic_id => params[:subtopic_id]).each do |article| %>
+                  <p><%= link_to article.title, article.url, :target => "_blank" %></p>
+                  <p><%= article.description %></p>
+                <% end %>
 
-                    </div><!--main div end -->
+              </div><!--main div end -->
+            </div><!--column end-->
+
+            <div class="span3">
+              <h2>Subtopics</h2>
+              <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
+
+              <div class="accordion" id="accordion2">
+                <% @topic.articles.where(:level => 2).each do |article| %>
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <%= link_to article.subtopic.title, int_articles_url({:subtopic_id => article.subtopic.id}) %>
+                    </div>
                   </div>
-
-
-                  <div class="span3">
-                    <aside id="subtopic-aside" class="span3 p10 radius">
-                      <h2>Subtopics</h2>
-                      <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
-
-                      <div class="accordion" id="accordion2">
-                        <% @topic.subtopics.each do |subtopic| %>
-                          <div class="accordion-group">
-                            <div class="accordion-heading">
-                              <%= link_to "#{subtopic.title}", int_articles_url({:subtopic_id => subtopic.id}), :class => "accordion-toggle"%>
-                            </li>
-                            </div>
-                          </div>
-                        <% end %>
-                      </div>
-                    </aside>
-
-                  </div><!--column end-->
-                </div>
+                <% end %>
               </div>
-          </div>
 
+            </div><!--column end-->
+
+          </div>
+        </div><!-- end of crazy centering -->
+      </div>
   </div>
 
 </section>
+
+
+
+
+
+
+                    <aside id="subtopic-aside" class="span3 p10 radius">
+
+                    </aside>
+
+
 </div>
 
 </div><!--end row -->

@@ -18,11 +18,10 @@
       <div class="row m40-top">
         <div class="span12">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab1" data-toggle="tab"><h4>Welcome</h4></a></li>
-            <li><a href="#tab2" data-toggle="tab"><h4>Beginner</h4></a></li>
-
-            <li><a href="#tab3" data-toggle="tab"><h4>Intermediate</h4></a></li>
-            <li><a href="#tab4" data-toggle="tab"><h4>Advanced</h4></a></li>
+            <li class="active"><h4>Welcome</h4></li>
+            <li><a href="/topics/<%= @topic.id %>/beg_articles.html"><h4>Beginner</h4></a></li>
+            <li><a href="/topics/<%= @topic.id %>/int_articles.html"><h4>Intermediate</h4></a></li>
+            <li><a href="/topics/<%= @topic.id %>/adv_articles.html"><h4>Advanced</h4></a></li>
           </ul>
         </div>
       </div>
@@ -31,7 +30,7 @@
   <section>
 
     <div class="tab-content bgwhite">
-      <div class="tab-pane active" id="tab1">
+      <div class="tab-pane active">
         <div class="m10-top container ">
           <div class="row"><!--added to center contents within tab -->
             <div class="span9">
@@ -56,66 +55,13 @@
             </div><!--column end-->
 
             <div class="span3">
-              <%= render 'aside' %>
+              <h2>Please select a resource level above.</h2>
             </div><!--column end-->
 
           </div>
         </div><!-- end of crazy centering -->
       </div>
-
-      <div class="tab-pane" id="tab2">
-          <div class="container">
-              <div class="row">
-                  <div class="span9">
-                    <div id="main">
-                      <a href="#article_form" role="button" class="btn btn-success" data-toggle="modal" data-target="#article-form">Submit an Article</a>
-
-                    </div><!--main div end -->
-                  </div>
-
-
-                  <div class="span3">
-                    <%= render 'aside' %>
-                  </div><!--column end-->
-                </div>
-              </div>
-          </div>
-
-        <div class="tab-pane" id="tab3">
-          <div class="container">
-              <div class="row">
-                  <div class="span9">
-                    <div id="main">
-
-                  </div>
-                  </div>
-
-                  <div class="span3">
-                    <%= render 'aside' %>
-                  </div><!--column end-->
-                </div>
-              </div>
-          </div>
-
-
-
-        <div class="tab-pane" id="tab4">
-          <div class="container">
-              <div class="row">
-                  <div class="span9">
-                    <div id="main">
-                    </div>
-                  </div>
-
-                  <div class="span3">
-                    <%= render 'aside' %>
-                  </div><!--column end-->
-                </div>
-              </div>
-          </div>
   </div>
-
-
 
 </section>
 </div>
