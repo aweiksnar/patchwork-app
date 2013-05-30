@@ -3,6 +3,9 @@ class Article < ActiveRecord::Base
   belongs_to :subtopic
   belongs_to :topic
 
+  has_many :votes
+  has_many :users, :through => :votes
+
   def display_level
     l =  Article.find_by_level(self.level).level
     if l == 1
