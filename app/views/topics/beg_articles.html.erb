@@ -37,6 +37,12 @@
               <div id="main">
                 <a href="#article_form" role="button" class="btn btn-success" data-toggle="modal" data-target="#article-form">Submit an Article</a>
                 <% @articles.where(:subtopic_id => params[:subtopic_id]).each do |article| %>
+                  <%= form_for @vote do |f| %>
+                    <%= f.hidden_field :user_id, value: "#{session[:user_id]}"%>
+                    <%= f.hidden_field :article_id, value: "#{article.id}" %>
+                    <%= f.submit "#{article.votes.count}" %>
+                    <% end %>
+                    <%= notice %>
                   <p><%= link_to article.title, article.url, :target => "_blank" %></p>
                   <p><%= article.description %></p>
                 <% end %>
