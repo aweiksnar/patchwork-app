@@ -9,6 +9,11 @@
 
     </ul>
 
+    <%= form_tag(topics_url, class: 'navbar-search pull-left', method: 'get') do %>
+      <%= text_field_tag :search, nil, placeholder: "Search by topic", class: 'search-query'  %>
+    <% end %>
+
+
     <ul id="authenticate" class="nav pull-right">
       <% if session[:user_id].present? %>
         <li><%= link_to 'Log Out', sessions_url, :method => :delete %></li>

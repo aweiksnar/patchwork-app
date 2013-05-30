@@ -1,7 +1,11 @@
 class TopicsController < ApplicationController
 
   def index
+    if params[:search]
+    @topics = Topic.where("title LIKE ?", "%#{params[:search]}%")
+    else
     @topics = Topic.all
+    end
   end
 
   def show
