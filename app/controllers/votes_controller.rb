@@ -47,7 +47,7 @@ class VotesController < ApplicationController
         format.html { redirect_to :back, notice: 'Vote was successfully created.' }
         format.json { render json: @vote, status: :created, location: @vote }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to :back,  notice: "One vote per article"}
         format.json { render json: @vote.errors, status: :unprocessable_entity }
       end
     end

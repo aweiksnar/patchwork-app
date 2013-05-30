@@ -3,4 +3,9 @@ class Vote < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :article
+
+
+  validates_uniqueness_of :article_id, :scope => :user_id
+
+
 end
