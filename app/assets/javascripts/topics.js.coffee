@@ -1,5 +1,6 @@
 jQuery ->
-  $(document).pjax('a', '#main')
-  # Cool Effect goes here
+  $(document).pjax('.accordion a', '#main')
+
+
   # $(document).on('pjax:end', () ->
   #   alert "All done")

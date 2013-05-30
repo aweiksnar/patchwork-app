@@ -22,8 +22,8 @@ class SubtopicsController < ApplicationController
     @subtopic.topic_id = params[:topic_id]
 
     if @subtopic.save
-            redirect_to subtopics_url
-          else
+      redirect_to subtopics_url
+    else
       render 'new'
     end
   end
@@ -47,6 +47,6 @@ class SubtopicsController < ApplicationController
   def destroy
     @subtopic = Subtopic.find_by_id(params[:id])
     @subtopic.destroy
-        redirect_to subtopics_url
-    end
+    redirect_to subtopics_url
+  end
 end
