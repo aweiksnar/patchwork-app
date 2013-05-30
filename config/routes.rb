@@ -48,7 +48,9 @@ Patchwork::Application.routes.draw do
   post '/topics', controller: 'topics', action: 'create'
 
   # READ
-  get '/topics/article_list', controller: 'topics', action: 'article_list', as: 'article_list'
+  get '/topics/:id/beg_articles', controller: 'topics', action: 'beg_articles', as: 'beg_articles'
+  get '/topics/:id/int_articles', controller: 'topics', action: 'int_articles', as: 'int_articles'
+  get '/topics/:id/adv_articles', controller: 'topics', action: 'adv_articles', as: 'adv_articles'
   get '/topics', controller: 'topics', action: 'index', as: 'topics'
   get '/topics/:id', controller: 'topics', action: 'show', as: 'topic'
 

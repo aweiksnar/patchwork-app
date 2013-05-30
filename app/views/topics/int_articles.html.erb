@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="span5">
@@ -10,7 +11,6 @@
   </div>
 </div>
 
-
 <div class="row">
   <div>
   <div class="tabbable"> <!-- Only required for left/right tabs -->
@@ -18,9 +18,9 @@
       <div class="row m40-top">
         <div class="span12">
           <ul class="nav nav-tabs">
-            <li class="active"><h4>Welcome</h4></li>
+            <li><a href="/topics/<%= @topic.id %>/"><h4>Welcome</h4></a></li>
             <li><a href="/topics/<%= @topic.id %>/beg_articles.html"><h4>Beginner</h4></a></li>
-            <li><a href="/topics/<%= @topic.id %>/int_articles.html"><h4>Intermediate</h4></a></li>
+            <li class="active"><h4>Intermediate</h4></li>
             <li><a href="/topics/<%= @topic.id %>/adv_articles.html"><h4>Advanced</h4></a></li>
           </ul>
         </div>
@@ -34,28 +34,30 @@
         <div class="m10-top container ">
           <div class="row"><!--added to center contents within tab -->
             <div class="span9">
+              <div id="main">
+                <a href="#article_form" role="button" class="btn btn-success" data-toggle="modal" data-target="#article-form">Submit an Article</a>
+                <% @articles.where(:subtopic_id => params[:subtopic_id]).each do |article| %>
+                  <p><%= link_to article.title, article.url, :target => "_blank" %></p>
+                  <p><%= article.description %></p>
+                <% end %>
 
-              <div id="subtopic-content" class="subtopic-intro">
-                    <h1 class="cursive">Hello!</h1>
-                    <p>Get ready to learn some <%= @topic.title %>! You can start by selecting the beginner tab above. If you're already familiar with some of the basics of <%= @topic.title %> check out the Intermediate &amp; Advanced tabs to find subtopics more to your interest.</p>
-
-                    <h3>Subtopics</h3>
-                    <p>Once you've selected the article level from the tabs above look to the right to select a subtopic of that section. You'll be greeted by the top 3 articles of that subtopic within <%= @topic.title %>.</p>
-
-                    <h3>Something missing?</h3>
-                    <p>If you're noticing that one of the skill levels is missing a concept please help us expand the section by <strong>adding a subtopic</strong>. Even if you don't know specifically what articles belong there it's ok.</p>
-
-                    <p>If you're in a subtopic and have a great article that you believe belongs in the top 3 you can submit that too! We're looking for <strong>3 things</strong>:</p>
-                    <ol class="welcome-list">
-                      <li>The article's title</li>
-                      <li>The article URL</li>
-                      <li>And your reason for submitting it. Explaining why you think it's a great resource and how it's helpful clarifys it's purpose to users and helps you get votes.</li>
-                    </ol>
-              </div>
+              </div><!--main div end -->
             </div><!--column end-->
 
             <div class="span3">
-              <h2>Please select a resource level above.</h2>
+              <h2>Subtopics</h2>
+              <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
+
+              <div class="accordion" id="accordion2">
+                <% @topic.articles.where(:level => 2).each do |article| %>
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <%= link_to article.subtopic.title, int_articles_url({:subtopic_id => article.subtopic.id}) %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+
             </div><!--column end-->
 
           </div>
@@ -64,6 +66,17 @@
   </div>
 
 </section>
+
+
+
+
+
+
+                    <aside id="subtopic-aside" class="span3 p10 radius">
+
+                    </aside>
+
+
 </div>
 
 </div><!--end row -->
@@ -123,6 +136,4 @@
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
-
-
 

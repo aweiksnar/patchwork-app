@@ -20,8 +20,8 @@ class TopicsController < ApplicationController
     @topic.description = params[:description]
 
     if @topic.save
-            redirect_to topics_url
-          else
+      redirect_to topics_url
+    else
       render 'new'
     end
   end
@@ -37,8 +37,8 @@ class TopicsController < ApplicationController
     @topic.description = params[:description]
 
     if @topic.save
-            redirect_to topics_url
-          else
+      redirect_to topics_url
+    else
       render 'edit'
     end
   end
@@ -46,12 +46,35 @@ class TopicsController < ApplicationController
   def destroy
     @topic = Topic.find_by_id(params[:id])
     @topic.destroy
-        redirect_to topics_url
+
+    redirect_to topics_url
   end
 
-  def article_list
+
+
+  def beg_articles
+    @topic = Topic.find_by_id(params[:id])
+    @article = Article.new
     @articles = Article.where(:level => 1)
 
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
+  end
+
+  def int_articles
+    @articles = Article.where(:level => 2)
+    @topic = Topic.find_by_id(params[:id])
+    @article = Article.new
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
+  end
+
+  def adv_articles
+    @articles = Article.where(:level => 3)
+    @topic = Topic.find_by_id(params[:id])
+    @article = Article.new
     if request.headers['X-PJAX']
       render :layout => false
     end

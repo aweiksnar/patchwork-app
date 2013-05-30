@@ -1,6 +1,0 @@
-
-
-<% @articles.where(:subtopic_id => params[:subtopic_id]).each do |article| %>
-  <p><%= link_to article.title, article.url %></p>
-  <p><%= article.description %></p>
-<% end %>

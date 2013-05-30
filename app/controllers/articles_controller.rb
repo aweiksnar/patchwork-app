@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
      redirect_to articles_url
-          else
+    else
       render 'new'
     end
   end
@@ -36,8 +36,8 @@ class ArticlesController < ApplicationController
     @article.level = params[:level]
 
     if @article.save
-            redirect_to articles_url
-          else
+      redirect_to articles_url
+    else
       render 'edit'
     end
   end
@@ -45,6 +45,6 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find_by_id(params[:id])
     @article.destroy
-        redirect_to articles_url
-      end
+    redirect_to articles_url
+  end
 end
