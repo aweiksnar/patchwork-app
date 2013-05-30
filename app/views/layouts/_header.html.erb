@@ -6,6 +6,24 @@
 <ul id="logo" class="navbar-inner">
     <ul class="nav">
       <li><%= link_to 'PatchLearn', topics_url %></li>
+      <!-- <li><%# link_to 'Browse Topics', topics_url %></li> -->
+
+      <li class="dropdown">
+          <a class="dropdown-toggle"
+             data-toggle="dropdown"
+             href="#">
+              Browse Topics
+              <b class="caret"></b>
+            </a>
+          <ul class="dropdown-menu">
+              <% Topic.all.each do |topic| %>
+                <li><%= link_to topic.title, topic_url(topic.id) %></li>
+              <% end %>
+              <hr />
+              <li><%= link_to "Add a Topic", new_topic_url %>
+          </ul>
+
+      </li>
 
     </ul>
 
