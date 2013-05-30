@@ -9,10 +9,7 @@
     <%= text_field_tag :title %>
   </div>
 
-    <div>
-    <%= label_tag :category_id %><br />
-    <%= number_field_tag :category_id %>
-  </div>
+  <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :title) %>
 
 
   <div>

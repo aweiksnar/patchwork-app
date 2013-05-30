@@ -6,6 +6,4 @@ class Vote < ActiveRecord::Base
 
 
   validates_uniqueness_of :article_id, :scope => :user_id
-
-
 end
