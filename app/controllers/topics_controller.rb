@@ -1,7 +1,11 @@
 class TopicsController < ApplicationController
 
   def index
+    if params[:search]
+    @topics = Topic.where("title LIKE ?", "%#{params[:search]}%")
+    else
     @topics = Topic.all
+    end
   end
 
   def show
@@ -53,6 +57,7 @@ class TopicsController < ApplicationController
 
 
   def beg_articles
+    @vote = Vote.new
     @topic = Topic.find_by_id(params[:id])
     @article = Article.new
     @articles = Article.where(:level => 1)
