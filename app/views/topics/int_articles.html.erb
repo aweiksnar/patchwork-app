@@ -102,38 +102,5 @@
   </div>
 </div>
 
-<!-- new article modal -->
-<div id="article-form" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="article-add-form" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Add a New Article to <%= @topic.title %></h3>
-  </div>
-  <div class="modal-body">
-    <%= form_for @article do |f| %>
 
-      <%= f.label :title, "Title" %>
-      <%= f.text_field :title  %>
-
-      <%= f.label :url, "URL" %>
-      <%= f.text_field :url  %>
-
-      <%= f.label :description, "Description" %>
-      <%= f.text_field :description  %>
-
-      <%= f.label :level  %>
-      <%= f.select :level, options_for_select([['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]], 1) %>
-
-      <div>
-      <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.where(:topic_id => params[:id]), "id", "title") %>
-      </div>
-
-      <%= f.submit "Add", :class => "btn btn-success" %>
-
-      <% end %>
-
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-</div>
-
+<%= render 'article-modal' %>
