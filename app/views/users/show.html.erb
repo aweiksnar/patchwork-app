@@ -1,23 +1,63 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="span3">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Username:</b>
-  <%= @user.username %>
-</p>
+  <p>
+    <b>Username:</b>
+    <%= @user.username %>
+  </p>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+  <p>
+    <b>Email:</b>
+    <%= @user.email %>
+  </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+    </div>
 
-<h2>Voted Articles:</h2>
+    <div class="span9">
+      <div class="user_score clearfix">
+        <div class="score_holder pull-left">
+          <h5>Score:</h5>
+          <h2><%= @user.total_points(@articles) %></h2>
+        </div>
+        <div class="score_holder pull-left">
+          <h2>=</h2>
+        </div>
 
-<% @votes.each do |v| %>
-  <p><%= link_to v.article.title, v.article.url %></p>
-<% end %>
+        <div class="score_holder pull-left">
+          <h5>Submission Points:</h5>
+          <h2> <%= @user.submission_points(@articles) %></h2>
+        </div>
+        <div class="score_holder pull-left">
+          <h2>+</h2>
+        </div>
+
+        <div class="score_holder pull-left">
+          <h5>Vote Points:</h5>
+
+
+          <h2>
+            <%= @user.vote_points(@articles) %>
+          </h2>
+
+        </div>
+
+      </div>
+
+      <h2>Voted Articles:</h2>
+      <% @votes.each do |v| %>
+        <p><%= link_to v.article.title, v.article.url %></p>
+      <% end %>
+
+      <h2>Submitted Articles:</h2>
+      <% @articles.each do |a| %>
+        <p><%= link_to a.title, a.url %></p>
+      <% end %>
+
+    </div>
+</div><!--end of row-->
 
 </div>
