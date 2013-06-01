@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :username, :password, :password_confirmation
 
+  has_many :articles
+
   has_many :votes
   has_many :articles, :through => :votes
 

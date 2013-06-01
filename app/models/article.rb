@@ -1,7 +1,8 @@
 class Article < ActiveRecord::Base
-  attr_accessible :title, :url, :bookmark, :description , :subtopic_id, :level
+  attr_accessible :title, :url, :bookmark, :description , :subtopic_id, :level, :user_id
   belongs_to :subtopic
   belongs_to :topic
+  belongs_to :user
 
   has_many :votes
   has_many :users, :through => :votes
