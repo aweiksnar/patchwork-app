@@ -12,6 +12,10 @@
   <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :title) %>
 
 
+  <%= label_tag :wiki_url, "Wikipedia Url" %>
+  <%= text_field_tag :wiki_url %>
+
+
   <div>
     <%= submit_tag "Create Topic" %>
   </div>

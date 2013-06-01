@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new
     @topic.title = params[:title]
     @topic.category_id = params[:category_id]
-    @topic.description = params[:description]
+    @topic.description = @topic.scrape_description(params[:wiki_url])
 
     if @topic.save
       redirect_to topics_url
@@ -53,8 +53,6 @@ class TopicsController < ApplicationController
 
     redirect_to topics_url
   end
-
-
 
   def beg_articles
     @vote = Vote.new
