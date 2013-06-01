@@ -11,9 +11,13 @@
   <%= @user.email %>
 </p>
 
-
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 
+<h2>Voted Articles:</h2>
+
+<% @votes.each do |v| %>
+  <p><%= link_to v.article.title, v.article.url %></p>
+<% end %>
 
 </div>
