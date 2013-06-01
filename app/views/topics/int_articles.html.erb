@@ -124,7 +124,7 @@
       <%= f.select :level, options_for_select([['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]], 1) %>
 
       <div>
-      <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.all, "id", "title") %>
+      <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.where(:topic_id => params[:id]), "id", "title") %>
       </div>
 
       <%= f.submit "Add", :class => "btn btn-success" %>
