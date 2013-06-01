@@ -89,11 +89,12 @@
       <%= label_tag :title, "Title" %>
       <%= text_field_tag :title  %>
       <%= hidden_field_tag :topic_id, @topic.id %>
-      <%= submit_tag "Add", :class => "btn btn-success" %>
-      <% end %>
+
 
   </div>
   <div class="modal-footer">
+    <%= submit_tag "Add", :class => "btn btn-success" %>
+      <% end %>
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
@@ -123,12 +124,12 @@
       <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.all, "id", "title") %>
       </div>
 
-      <%= f.submit "Add", :class => "btn btn-success" %>
 
-      <% end %>
 
   </div>
   <div class="modal-footer">
+    <%= f.submit "Add", :class => "btn btn-success" %>
+      <% end %>
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
