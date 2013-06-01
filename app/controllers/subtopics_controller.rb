@@ -21,6 +21,16 @@ class SubtopicsController < ApplicationController
     @subtopic.title = params[:title]
     @subtopic.topic_id = params[:topic_id]
 
+    article = Article.new
+    # if youre coming from beginner articles page
+    if :back == beg_articles_url
+    article.level = 1
+    end
+    article.save
+
+
+
+
     if @subtopic.save
       redirect_to subtopics_url
     else

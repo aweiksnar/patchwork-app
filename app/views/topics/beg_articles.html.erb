@@ -63,6 +63,18 @@
                       </div>
                     </div>
                   <% end %>
+
+                  <% @topic.subtopics.each do |subtopic| %>
+                        <% if subtopic.articles.count == 0 %>
+                        <div class="accordion-group">
+                          <div class="accordion-heading">
+                          <%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%>
+                          </div>
+                        </div>
+                        <% else %>
+                        <% end %>
+                  <% end %>
+
                 </div>
               </aside>
             </div><!--column end-->
@@ -89,8 +101,6 @@
       <%= label_tag :title, "Title" %>
       <%= text_field_tag :title  %>
       <%= hidden_field_tag :topic_id, @topic.id %>
-
-
   </div>
   <div class="modal-footer">
     <%= submit_tag "Add", :class => "btn btn-success" %>
@@ -121,7 +131,7 @@
       <%= f.select :level, options_for_select([['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]], 1) %>
 
       <div>
-      <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.all, "id", "title") %>
+      <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.where(:topic_id => params[:id]), "id", "title") %>
       </div>
 
 
