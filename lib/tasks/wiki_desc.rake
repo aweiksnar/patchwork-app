@@ -11,5 +11,7 @@ introductions = doc.css('#mw-content-text > p:nth-of-type(1)')
 
 introductions.each do |first|
   puts first.text
+
 end
+
 end

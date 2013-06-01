@@ -13,6 +13,11 @@
     <%= number_field_tag :category_id, @topic.category_id %>
   </div>
 
+  <div>
+    <%= label_tag :description %>
+    <%= text_area_tag :description, @topic.description %>
+
+  </div>
 
   <div>
     <%= submit_tag "Update Topic" %>

@@ -36,7 +36,7 @@
             <div class="span9">
               <div id="main">
                 <a href="#article_form" role="button" class="btn btn-success" data-toggle="modal" data-target="#article-form">Submit an Article</a>
-                <% @articles.where(:subtopic_id => params[:subtopic_id]).each do |article| %>
+                <% @articles.where(:subtopic_id => params[:subtopic_id]).sort_by { |location| location.votes.count }.reverse.each do |article| %>
                   <%= form_for @vote do |f| %>
                     <%= f.hidden_field :user_id, value: "#{session[:user_id]}"%>
                     <%= f.hidden_field :article_id, value: "#{article.id}" %>
@@ -89,11 +89,12 @@
       <%= label_tag :title, "Title" %>
       <%= text_field_tag :title  %>
       <%= hidden_field_tag :topic_id, @topic.id %>
-      <%= submit_tag "Add", :class => "btn btn-success" %>
-      <% end %>
+
 
   </div>
   <div class="modal-footer">
+    <%= submit_tag "Add", :class => "btn btn-success" %>
+      <% end %>
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
@@ -123,12 +124,12 @@
       <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.all, "id", "title") %>
       </div>
 
-      <%= f.submit "Add", :class => "btn btn-success" %>
 
-      <% end %>
 
   </div>
   <div class="modal-footer">
+    <%= f.submit "Add", :class => "btn btn-success" %>
+      <% end %>
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
