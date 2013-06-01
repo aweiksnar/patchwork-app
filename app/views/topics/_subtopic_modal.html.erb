@@ -1,0 +1,20 @@
+<div id="subtopic-form" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="subtopic-add-form" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add a New Sub-Topic to <%= @topic.title %></h3>
+  </div>
+
+  <div class="modal-body">
+    <%= form_tag subtopics_url, :method => :post do %>
+      <%= label_tag :title, "Title" %>
+      <%= text_field_tag :title  %>
+      <%= hidden_field_tag :topic_id, @topic.id %>
+  </div>
+
+  <div class="modal-footer">
+    <%= submit_tag "Add", :class => "btn btn-success" %>
+      <% end %>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
