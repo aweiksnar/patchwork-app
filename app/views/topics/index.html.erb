@@ -1,29 +1,31 @@
-<h1>Topics</h1>
-<%= notice %>
-<p><%= link_to 'Add a New Topic', new_topic_url %></p>
+<div class="container">
+  <h1>Topics</h1>
+  <%= notice %>
+  <p><%= link_to 'Add a New Topic', new_topic_url %></p>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Topic title</th>
-      <th>Category</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Topic title</th>
+        <th>Category</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-  <tbody>
-  <% @topics.each do |topic| %>
-    <tr>
-      <td><%= topic.title %></td>
-      <td><%= topic.category.title %></td>
-      <td><%= link_to 'Show', topic_url(topic) %></td>
-      <td><%= link_to 'Edit', edit_topic_url(topic) %></td>
-      <td><%= link_to 'Destroy', topic_url(topic), method: 'delete', data: { confirm: "Do you really want to delete this topic?" } %></td>
+    <tbody>
+    <% @topics.each do |topic| %>
+      <tr>
+        <td><%= topic.title %></td>
+        <td><%= topic.category.title %></td>
+        <td><%= link_to 'Show', topic_url(topic) %></td>
+        <td><%= link_to 'Edit', edit_topic_url(topic) %></td>
+        <td><%= link_to 'Destroy', topic_url(topic), method: 'delete', data: { confirm: "Do you really want to delete this topic?" } %></td>
 
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 
+</div>

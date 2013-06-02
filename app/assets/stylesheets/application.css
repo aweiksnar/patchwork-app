@@ -69,5 +69,8 @@ footer {background-color:#EBEBEB; height:200px;}
 .score_holder {padding:0 20px; margin:0 5px;}
 .details {font-size: 12px;}
 
+/* Authentication Nav */
+#authenticate a {display: inline-block; padding: 10px 15px;}
+
 
 
