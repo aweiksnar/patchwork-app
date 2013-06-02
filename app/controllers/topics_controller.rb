@@ -1,5 +1,8 @@
 class TopicsController < ApplicationController
 
+  before_filter :require_signed_in_user, only: [:create, :update, :edit, :destroy]
+
+
   def index
     if params[:search]
     @topics = Topic.where("title LIKE ?", "%#{params[:search]}%")
