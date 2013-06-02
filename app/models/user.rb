@@ -10,11 +10,18 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def vote_points(articles)
-    vote_points = []
-    articles.each do |article|
-      vote_points << article.votes.count
+
+    if articles == []
+      return 0
+    else
+      vote_points = []
+
+      articles.each do |article|
+        vote_points << article.votes.count
+      end
+
+      return vote_points.inject { |sum, x| sum + x }
     end
-     vote_points.inject { |sum, x| sum + x }
   end
 
 
@@ -23,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def total_points(articles)
-    vote_points(articles) + submission_points(articles)
+      vote_points(articles) + submission_points(articles)
   end
 
 

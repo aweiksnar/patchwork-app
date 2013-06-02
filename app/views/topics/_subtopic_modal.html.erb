@@ -9,11 +9,12 @@
       <%= label_tag :title, "Title" %>
       <%= text_field_tag :title  %>
       <%= hidden_field_tag :topic_id, @topic.id %>
+      <%= hidden_field_tag :user_id, value: session[:user_id] %>
   </div>
 
   <div class="modal-footer">
-    <%= submit_tag "Add", :class => "btn btn-success" %>
-      <% end %>
+      <%= submit_tag "Add", :class => "btn btn-success" %>
+    <% end %>
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
