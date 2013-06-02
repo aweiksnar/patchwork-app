@@ -1,6 +1,13 @@
 class SubtopicsController < ApplicationController
 
   before_filter :require_signed_in_user, only: [:create, :update, :edit, :destroy]
+  before_filter :authorize_user, only: [:update, :edit, :destroy]
+
+  def authorize_user
+    unless Subtopic.find_by_id(params[:id]) == Subtopic.find_by_user_id(session[:user_id])
+      redirect_to :back, notice: "You can't do that..."
+    end
+  end
 
   def index
     @subtopics = Subtopic.all
@@ -22,19 +29,13 @@ class SubtopicsController < ApplicationController
     @subtopic = Subtopic.new
     @subtopic.title = params[:title]
     @subtopic.topic_id = params[:topic_id]
+    @subtopic.user_id = session[:user_id]
 
     article = Article.new
-    # if youre coming from beginner articles page
-    if :back == beg_articles_url
-    article.level = 1
-    end
     article.save
 
-
-
-
     if @subtopic.save
-      redirect_to subtopics_url
+      redirect_to :back
     else
       render 'new'
     end

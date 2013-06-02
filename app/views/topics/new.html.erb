@@ -17,6 +17,8 @@
   <%= label_tag :wiki_url, "Wikipedia Url" %>
   <%= text_field_tag :wiki_url %>
 
+  <%= hidden_field_tag :user_id, value: "#{session[:user_id]}" %>
+
 
   <div>
     <%= submit_tag "Create Topic", class: "btn btn-success" %>

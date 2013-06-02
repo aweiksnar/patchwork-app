@@ -1,5 +1,5 @@
 class Subtopic < ActiveRecord::Base
-  attr_accessible :title, :topic_id
+  attr_accessible :title, :topic_id, :user_id
 
   has_many :articles
   belongs_to :topic
