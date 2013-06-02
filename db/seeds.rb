@@ -7,6 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+User.destroy_all
+users = User.create([{ id: "1", email: "a@a.com", username: "alex", password: "123"},{ id: "2", email: "c@c.com", username: "cole", password: "123"}])
+
+
 categories = [
   {:title => "Sports"},
   {:title => "Programming"},

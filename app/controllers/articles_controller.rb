@@ -1,5 +1,14 @@
 class ArticlesController < ApplicationController
 
+  before_filter :require_signed_in_user, only: [:create, :update, :edit, :destroy]
+  before_filter :authorize_user, only: [:update, :edit, :destroy]
+
+  def authorize_user
+    unless Article.find_by_user_id(params[:user_id]) == session[:user_id]
+      redirect_to :back, notice: "Hey, funny story...You can't do that."
+    end
+  end
+
   def index
     @articles = Article.all
   end

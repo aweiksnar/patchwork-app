@@ -36,7 +36,7 @@
             <div class="span9">
               <div id="main">
                 <a href="#article_form" role="button" class="btn btn-success" data-toggle="modal" data-target="#article-form">Submit an Article</a>
-                <% @articles.where(:subtopic_id => params[:subtopic_id]).sort_by { |location| location.votes.count }.reverse.each do |article| %>
+                <% @articles.where(:subtopic_id => params[:subtopic_id]).sort_by { |article| article.votes.count }.reverse.each do |article| %>
                   <%= form_for @vote do |f| %>
                     <%= f.hidden_field :user_id, value: "#{session[:user_id]}"%>
                     <%= f.hidden_field :article_id, value: "#{article.id}" %>

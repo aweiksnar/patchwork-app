@@ -1,5 +1,8 @@
 class TopicsController < ApplicationController
 
+  before_filter :require_signed_in_user, only: [:create, :update, :edit, :destroy]
+
+
   def index
     if params[:search]
     @topics = Topic.where("title LIKE ?", "%#{params[:search]}%")
@@ -66,6 +69,7 @@ class TopicsController < ApplicationController
   end
 
   def int_articles
+    @vote = Vote.new
     @articles = Article.where(:level => 2)
     @topic = Topic.find_by_id(params[:id])
     @article = Article.new
@@ -75,6 +79,7 @@ class TopicsController < ApplicationController
   end
 
   def adv_articles
+    @vote = Vote.new
     @articles = Article.where(:level => 3)
     @topic = Topic.find_by_id(params[:id])
     @article = Article.new
