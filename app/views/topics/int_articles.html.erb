@@ -64,8 +64,19 @@
                     </div>
                   </div>
                 <% end %>
-              </div>
 
+
+              <% @topic.subtopics.each do |subtopic| %>
+                <% if subtopic.articles.count == 0 %>
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                    <%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%>
+                    </div>
+                  </div>
+                <% else %>
+                <% end %>
+              <% end %>
+              </div>
             </div><!--column end-->
 
           </div>

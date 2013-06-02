@@ -1,7 +1,13 @@
 class TopicsController < ApplicationController
 
   before_filter :require_signed_in_user, only: [:create, :update, :edit, :destroy]
+  before_filter :authorize_user, only: [:update, :edit, :destroy]
 
+  def authorize_user
+    unless Topic.find_by_id(params[:id]) == Topic.find_by_user_id(session[:user_id])
+      redirect_to :back, notice: "Hey, not so fast."
+    end
+  end
 
   def index
     if params[:search]
@@ -25,6 +31,7 @@ class TopicsController < ApplicationController
     @topic.title = params[:title]
     @topic.category_id = params[:category_id]
     @topic.description = @topic.scrape_description(params[:wiki_url])
+    @topic.user_id = session[:user_id]
 
     if @topic.save
       redirect_to topics_url

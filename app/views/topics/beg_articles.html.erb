@@ -65,14 +65,14 @@
                   <% end %>
 
                   <% @topic.subtopics.each do |subtopic| %>
-                        <% if subtopic.articles.count == 0 %>
-                        <div class="accordion-group">
-                          <div class="accordion-heading">
-                          <%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%>
-                          </div>
+                    <% if subtopic.articles.count == 0 %>
+                      <div class="accordion-group">
+                        <div class="accordion-heading">
+                        <%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%>
                         </div>
-                        <% else %>
-                        <% end %>
+                      </div>
+                    <% else %>
+                    <% end %>
                   <% end %>
 
                 </div>

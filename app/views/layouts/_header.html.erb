@@ -34,7 +34,7 @@
 
     <ul id="authenticate" class="nav pull-right">
       <% if session[:user_id].present? %>
-        <li><%= link_to 'Log Out', sessions_url, :method => :delete %></li>
+        <li><%= link_to "Log Out, #{User.find_by_id(session[:user_id]).username.capitalize}", sessions_url, :method => :delete %></li>
       <% else %>
         <li><%= link_to 'Log In', new_session_url %></li>
       <% end %>
