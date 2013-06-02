@@ -1,20 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="span3">
-  <p id="notice"><%= notice %></p>
-
-  <p>
-    <b>Username:</b>
-    <%= @user.username %>
-  </p>
-
-  <p>
-    <b>Email:</b>
-    <%= @user.email %>
-  </p>
-
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', users_path %>
+      <div class="module">
+        <p id="notice"><%= notice %></p>
+        <h2 class="m0">Yo! <%= @user.username %><br /><span class="details">(<%= link_to 'Edit Your Profile', edit_user_path(@user) %>)</span></h2>
+      </div>
     </div>
 
     <div class="span9">
@@ -37,25 +27,40 @@
 
         <div class="score_holder pull-left">
           <h5>Vote Points:</h5>
-
-
           <h2>
             <%= @user.vote_points(@articles) %>
           </h2>
-
         </div>
-
       </div>
 
-      <h2>Voted Articles:</h2>
-      <% @votes.each do |v| %>
-        <p><%= link_to v.article.title, v.article.url %></p>
-      <% end %>
+      <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab">Voted Articles</a></li>
+          <li><a href="#tab2" data-toggle="tab">Submitted Article</a></li>
+        </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+          <h2>Voted Articles</h2>
+          <ul class="unstyled">
+          <% @votes.each do |v| %>
+            <li><%= link_to v.article.title, v.article.url %></li>
+          <% end %>
+        </ul>
+        </div>
+        <div class="tab-pane" id="tab2">
+          <h2>Submitted Articles:</h2>
+          <ul class="unstyled">
+            <% @articles.each do |a| %>
+              <li><%= link_to a.title, a.url %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-      <h2>Submitted Articles:</h2>
-      <% @articles.each do |a| %>
-        <p><%= link_to a.title, a.url %></p>
-      <% end %>
+
+
+
 
     </div>
 </div><!--end of row-->

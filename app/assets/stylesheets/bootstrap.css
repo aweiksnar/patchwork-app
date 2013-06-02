@@ -612,8 +612,7 @@ a:focus {color: #005580;}
 }
 
 .container {
-  margin-right: auto;
-  margin-left: auto;
+  margin: 60px auto 0;
   *zoom: 1;
 }
 
@@ -3980,11 +3979,14 @@ input[type="submit"].btn.btn-mini {
 }
 
 .tab-content {
+  background-color: #fff;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   overflow: auto;
   padding: 20px;
 
 }
+
+
 
 .tabs-below > .nav-tabs,
 .tabs-right > .nav-tabs,

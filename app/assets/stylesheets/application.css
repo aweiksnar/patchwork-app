@@ -47,12 +47,13 @@ section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
 
 .bgwhite {background-color:#fff;}
 
+.p0 {padding:0;}
 .p5 {padding:5px;}
 .p10 {padding:10px;}
 .p15 {padding:15px;}
 .p20 {padding:20px;}
 
-
+.m0 {margin:0;}
 .m10 {margin: 10px;}
 .m10-top {margin-top: 10px}
 .m15-top {margin-top: 15px}
@@ -62,9 +63,11 @@ footer {background-color:#EBEBEB; height:200px;}
 
 /* Dashboard */
 
-.module {}
-.user_score {border:1px solid #000;}
+.module {margin-bottom: 25px;}
+.module h2 {line-height: 16px;}
+.user_score {border:1px solid #000; margin:0 0 25px;}
 .score_holder {padding:0 20px; margin:0 5px;}
+.details {font-size: 12px;}
 
 
 
