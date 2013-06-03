@@ -35,16 +35,30 @@
           <div class="row"><!--added to center contents within tab -->
             <div class="span9">
               <div id="main">
-                <a href="#article_form" role="button" class="btn btn-success" data-toggle="modal" data-target="#article-form">Submit an Article</a>
+
+                <div id="subtopic-title" class="clearfix">
+                  <h2 class="m0  pull-left"><%= Subtopic.find_by_id(params[:subtopic_id]).title if params[:subtopic_id].present? %></h2>
+                  <a href="#article_form" role="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#article-form">Submit an Article</a>
+                   <%= notice %>
+                </div>
+
                 <% @articles.where(:subtopic_id => params[:subtopic_id]).sort_by { |article| article.votes.count }.reverse.each do |article| %>
-                  <%= form_for @vote do |f| %>
-                    <%= f.hidden_field :user_id, value: "#{session[:user_id]}"%>
-                    <%= f.hidden_field :article_id, value: "#{article.id}" %>
-                    <%= f.submit "#{article.votes.count}" %>
-                    <% end %>
-                    <%= notice %>
-                  <p><%= link_to article.title, article.url, :target => "_blank" %></p>
-                  <p><%= article.description %></p>
+
+                <div class="subtopic-content clearfix">
+                  <div class="vote-module pull-left">
+                    <%= form_for @vote do |f| %>
+                      <%= f.hidden_field :user_id, value: "#{session[:user_id]}"%>
+                      <%= f.hidden_field :article_id, value: "#{article.id}" %>
+                      <%= f.submit "#{article.votes.count}", class: "vote-button", "data-toggle" => "tooltip", "title" => "first tooltip" %>
+                      <% end %>
+                  </div>
+
+                  <div class="subtopic-description pull-right">
+                    <h3 class="m0"><%= link_to article.title, article.url, :target => "_blank" %></h3>
+                    <p>" <%= article.description %> "</p>
+                    <hr />
+                  </div>
+                </div><!--subtopic content end -->
                 <% end %>
 
               </div><!--main div end -->
@@ -53,7 +67,6 @@
             <div class="span3">
               <aside id="subtopic-aside" class="span3 p10 radius">
                 <h2>Subtopics</h2>
-                <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
 
                 <div class="accordion" id="accordion2">
                   <% @topic.articles.where(:level => 1).each do |article| %>
@@ -74,8 +87,8 @@
                     <% else %>
                     <% end %>
                   <% end %>
-
                 </div>
+                  <a href="#subtopic-form" role="button" class="btn btn-success">Submit a Sub Topic</a>
               </aside>
             </div><!--column end-->
 
