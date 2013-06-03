@@ -8,7 +8,7 @@
       <tr>
         <th>Topic title</th>
         <th>Category</th>
-        <th></th>
+
         <th></th>
         <th></th>
       </tr>
@@ -17,11 +17,11 @@
     <tbody>
     <% @topics.each do |topic| %>
       <tr>
-        <td><%= topic.title %></td>
-        <td><%= topic.category.title %></td>
-        <td><%= link_to 'Show', topic_url(topic) %></td>
-        <td><%= link_to 'Edit', edit_topic_url(topic) %></td>
-        <td><%= link_to 'Destroy', topic_url(topic), method: 'delete', data: { confirm: "Do you really want to delete this topic?" } %></td>
+        <td><%= link_to topic.title, topic_url(topic) %> (<%= link_to 'Edit', edit_topic_url(topic) %> | <%= link_to 'Destroy', topic_url(topic), method: 'delete', data: { confirm: "Do you really want to delete this topic?" } %>)</td>
+        <td><%= topic.category.title %> </td>
+
+        <td></td>
+        <td></td>
 
       </tr>
     <% end %>
