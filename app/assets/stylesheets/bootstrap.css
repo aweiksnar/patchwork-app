@@ -612,7 +612,7 @@ a:focus {color: #005580;}
 }
 
 .container {
-  margin: 60px auto 0;
+  margin: auto;
   *zoom: 1;
 }
 
@@ -1181,7 +1181,7 @@ input[type="reset"],
 input[type="button"],
 input[type="radio"],
 input[type="checkbox"] {
-  width: auto;
+
 }
 
 select,
@@ -3980,6 +3980,7 @@ input[type="submit"].btn.btn-mini {
 
 .tab-content {
   background-color: #fff;
+  border-left: 1px solid #DDDDDD;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   overflow: auto;
   padding: 20px;
@@ -5532,7 +5533,19 @@ a.badge:focus {
 
 .accordion-heading {
   border-bottom: 0;
+
 }
+
+.accordion-heading a {
+  display: block;
+  padding: 2px 5px;
+  transition: background-color 150ms ease 0s;
+}
+.accordion-heading:hover a {
+  background-color: #eee;
+}
+
+
 
 .accordion-heading .accordion-toggle {
   display: block;
