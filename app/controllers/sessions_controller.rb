@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if @user.present? && @user.authenticate(params[:password])
       session[:user_id] = @user.id
 
-      redirect_to topics_url, notice: "Welcome back, #{@user.username.capitalize}"
+      redirect_to user_url(@user.id), notice: "Welcome back, #{@user.username.capitalize}"
     else
       redirect_to topics_url, notice: "Invalid Password or Username"
     end
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to topics_url, notice: "We'll miss you"
+    redirect_to root_url, notice: "We'll miss you"
   end
 
 end
