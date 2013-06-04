@@ -3,7 +3,12 @@
     <div class="span3">
       <div class="module">
         <p id="notice"><%= notice %></p>
-        <h2 class="m0">Yo! <%= @user.username %><br /><span class="details">(<%= link_to 'Edit Your Profile', edit_user_path(@user) %>)</span></h2>
+        <h2 class="m0">Yo! <%= @user.username %><br /><span class="details">( <%= link_to 'Edit Your Profile', edit_user_path(@user) %> )</span></h2>
+
+        <p>Hey! We need your brain! Ok, just your knowledge. So if you know a thing or three about a topic we don't have on the site please help us help others learn something new by <%= link_to 'submitting a topic', new_topic_url %>. Thanks!</p>
+
+        <p>Or if you have some expertise within an existing topic feel free to submit a <%= link_to 'subtopic', new_subtopic_url %> or <%= link_to 'article', new_article_url %>. Thanks!</p>
+
       </div>
     </div>
 
@@ -37,6 +42,7 @@
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab1" data-toggle="tab">Voted Articles</a></li>
           <li><a href="#tab2" data-toggle="tab">Submitted Article</a></li>
+          <li><a href="#tab3" data-toggle="tab">Bookmarks</a></li>
         </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab1">
@@ -53,6 +59,16 @@
             <% @articles.each do |a| %>
               <li><%= link_to a.title, a.url %></li>
             <% end %>
+          </ul>
+        </div>
+        <div class="tab-pane" id="tab3">
+          <h2>Submitted Articles:</h2>
+          <ul class="unstyled">
+            <%# @articles.each do |a| %>
+              <%# if a.bookmark == true %>
+                <!-- <li><%# link_to a.title, a.url %></li> -->
+              <%# end %>
+            <%# end %>
           </ul>
         </div>
       </div>

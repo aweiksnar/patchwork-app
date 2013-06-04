@@ -36,10 +36,12 @@
             <div class="span9">
               <div id="main">
 
+                <% if params[:subtopic_id].present? %>
                 <div id="subtopic-title" class="clearfix">
-                  <h2 class="m0  pull-left"><%= Subtopic.find_by_id(params[:subtopic_id]).title if params[:subtopic_id].present? %></h2>
+                  <h2 class="m0  pull-left"><%= Subtopic.find_by_id(params[:subtopic_id]).title %></h2>
                   <a href="#article_form" role="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#article-form">Submit an Article</a>
                 </div>
+                <% end %>
 
                  <% @articles.where(:subtopic_id => params[:subtopic_id]).sort_by { |article| article.votes.count }.reverse.each do |article| %>
 
