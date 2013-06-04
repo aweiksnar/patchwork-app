@@ -30,7 +30,7 @@ section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
 }
 
 #content {}
-#subtopic-title {
+#subtopic-title, #subtopic-footer {
     border-bottom: 1px solid #DDDDDD;
     margin: 0 0 10px;
     padding: 10px;
@@ -38,7 +38,7 @@ section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
 
 .vote-module {width:100px;}
 .vote-button {border:none; border-radius: 50px; height: 50px; width: 50px;}
-.vote-button:hover {background-color:#476A2F; color:#fff;}
+.vote-button:hover {background-color:#51A351; color:#fff;}
 
 
 .subtopic-content p {font-style: italic;}

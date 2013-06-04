@@ -1,37 +1,63 @@
-<h1>Subtopic #<%= @subtopic.id %></h1>
+<div class="container">
+  <h1><%= @subtopic.title %></h1>
+  <p>If you've recently submitted an article it should be near the bottom of this list.</p>
 
-<p>
-  <b>Subtopic title:</b>
-  <%= @subtopic.title %>
-</p>
+  <p>If you think your submission should be near the top, tell your friends, share it with your social networks, or blog about it.</p>
 
-<p>
+  <table class="table">
+    <tr>
+      <th>Rank</td>
+      <th>Article Title</td>
+      <th></td>
+      <th></td>
+      <th></td>
+    </tr>
+
+    <% @subtopic.articles.each do |x| %>
+
+    <tr>
+      <td><%= x.id %></td>
+      <td><%= link_to x.title, x.url %></td>
+      <td><%= link_to "Share On Facebook", "http://www.facebook.com" %></td>
+      <td><%= link_to "Let Me Twitta That", "http://www.twitter.com" %></td>
+      <td><%= link_to "Friendster", "http://www.youtube.com/watch?v=oHg5SJYRHA0" %></td>
+    </tr>
+
+    <% end %>
+  </table>
+
+
+
+</div>
+
+<!-- ######Previously On The Page -->
+<!-- <p>
   <b>Topic:</b>
-  <%= @subtopic.topic.title %>
-</p>
+  <%# @subtopic.topic.title %>
+</p> -->
 
-<h2>Add a New Article to <%= @subtopic.title %></h2>
-<%= form_tag articles_url do %>
+<!-- <h2>Add a New Article to <%= @subtopic.title %></h2> -->
+<%# form_tag articles_url do %>
 
-  <%= label_tag :title, "Title" %>
-  <%= text_field_tag :title  %>
+  <%#  label_tag :title, "Title" %>
+  <%#  text_field_tag :title  %>
 
-  <%= label_tag :url, "URL" %>
-  <%= text_field_tag :url  %>
+  <%#  label_tag :url, "URL" %>
+  <%#  text_field_tag :url  %>
 
-  <%= label_tag :description, "Description" %>
-  <%= text_field_tag :description  %>
+  <%#  label_tag :description, "Description" %>
+  <%#  text_field_tag :description  %>
 
-  <%= label_tag :level, "Beginner" %>
-  <%= radio_button_tag(:level, 1) %>
+  <%#  label_tag :level, "Beginner" %>
+  <%# radio_button_tag(:level, 1) %>
 
-  <%= label_tag :level, "Intermediate" %>
-  <%= radio_button_tag(:level, 2) %>
+  <%#  label_tag :level, "Intermediate" %>
+  <%#  radio_button_tag(:level, 2) %>
 
-  <%= label_tag :level, "Advanced" %>
-  <%= radio_button_tag(:level, 3) %>
+  <%#  label_tag :level, "Advanced" %>
+  <%#  radio_button_tag(:level, 3) %>
 
-  <%= hidden_field_tag :subtopic_id, @subtopic.id %>
-<%= submit_tag "Add" %>
-<% end %>
+  <%# hidden_field_tag :subtopic_id, @subtopic.id %>
+<%# submit_tag "Add" %>
+<%# end %>
 
