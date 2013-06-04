@@ -1,37 +1,36 @@
-<h1>Articles</h1>
+<div class="container">
 
-<p><%= link_to 'Add a New Article', new_article_url %></p>
+  <h1>Articles</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Article title</th>
-      <th>Url</th>
-      <th>Bookmark</th>
-      <th>Description</th>
-      <th>Subtopic</th>
-      <th>Level</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <p><%= link_to 'Add a New Article', new_article_url %></p>
 
-  <tbody>
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.url %></td>
-      <td><%= article.bookmark %></td>
-      <td><%= article.description %></td>
-      <td><%= article.subtopic.title %></td>
-      <td><%= article.display_level %></td>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Article title</th>
+        <th>Description</th>
+        <th>Subtopic</th>
+        <th>Level</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-      <td><%= link_to 'Show', article_url(article) %></td>
-      <td><%= link_to 'Edit', edit_article_url(article) %></td>
-      <td><%= link_to 'Destroy', article_url(article), method: 'delete', data: { confirm: "Do you really want to delete this article?" } %></td>
+    <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= link_to article.title, article.url %></td>
+        <td><%= article.description %></td>
+        <td><%= article.subtopic.title %></td>
+        <td><%= article.display_level %></td>
 
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+        <td><%= link_to 'Show', article_url(article) %></td>
+        <td><%= link_to 'Edit', edit_article_url(article) %></td>
+        <td><%= link_to 'Destroy', article_url(article), method: 'delete', data: { confirm: "Do you really want to delete this article?" } %></td>
 
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
