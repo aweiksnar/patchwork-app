@@ -40,9 +40,10 @@
                 <div id="subtopic-title" class="clearfix">
                   <h2 class="m0  pull-left"><%= Subtopic.find_by_id(params[:subtopic_id]).title  %></h2>
                   <a href="#article_form" role="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#article-form">Submit an Article</a>
-                   <%= notice %>
                 </div>
                 <% end %>
+
+                  <div class="alert alert-success"><%= notice %></div>
 
                 <% @articles.where(:subtopic_id => params[:subtopic_id]).sort_by { |article| article.votes.count }.reverse.each do |article| %>
 
@@ -93,7 +94,7 @@
                     <% end %>
                   <% end %>
                 </div>
-                  <a href="#subtopic-form" role="button" class="btn btn-success">Submit a Sub Topic</a>
+                  <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
               </aside>
             </div><!--column end-->
 
