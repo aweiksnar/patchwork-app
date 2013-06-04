@@ -2,6 +2,10 @@ Patchwork::Application.routes.draw do
   resources :users
   resources :votes
 
+  get "/contact" => "Pages#contact", as: "contact"
+  get "/about" => "Pages#about", as: "about"
+  get "/home" => "Pages#home", as: "home"
+
   root :to => "Topics#index"
 
   get "/signin" => "Sessions#new", as: "new_session"

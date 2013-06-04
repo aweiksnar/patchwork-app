@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_filter :authorize_user, only: [:update, :edit, :destroy]
 
   def authorize_user
-    unless Article.find_by_user_id(params[:user_id]) == session[:user_id]
+    unless Article.find_by_id(params[:id]).user_id == session[:user_id]
       redirect_to :back, notice: "Hey, funny story...You can't do that."
     end
   end

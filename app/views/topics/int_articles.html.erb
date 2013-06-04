@@ -59,6 +59,9 @@
                   </div>
                 </div><!--subtopic content end -->
                   <% end %>
+                  <% if params[:subtopic_id].present? %>
+                  <div id="subtopic-footer"><p>Not finding a great resource? Check out everything <%= link_to "Beyond the Top 20", subtopic_url(params[:subtopic_id]) %></div>
+                  <% end %>
 
 
               </div><!--main div end -->
@@ -89,7 +92,7 @@
                 <% end %>
               <% end %>
               </div>
-              <a href="#subtopic-form" role="button" class="btn btn-success">Submit a Sub Topic</a>
+              <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
             </div><!--column end-->
           </aside>
           </div>
