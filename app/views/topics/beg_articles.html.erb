@@ -60,7 +60,9 @@
                   </div>
                 </div><!--subtopic content end -->
                 <% end %>
+                <% if params[:subtopic_id].present? %>
                 <div id="subtopic-footer"><p>Not finding a great resource? Check out everything <%= link_to "Beyond the Top 20", subtopic_url(params[:subtopic_id]) %></div>
+                <% end %>
               </div><!--main div end -->
 
             </div><!--column end-->

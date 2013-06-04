@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def vote_points(articles)
-
     if articles == []
       return 0
     else
@@ -32,8 +31,6 @@ class User < ActiveRecord::Base
   def total_points(articles)
       vote_points(articles) + submission_points(articles)
   end
-
-
 
 end
 
