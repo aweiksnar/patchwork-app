@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130602211422) do
+ActiveRecord::Schema.define(:version => 20130604213030) do
 
   create_table "articles", :force => true do |t|
     t.string  "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130602211422) do
     t.integer "level"
     t.text    "description"
     t.integer "user_id"
+    t.integer "number_of_votes", :default => 0
   end
 
   create_table "categories", :force => true do |t|

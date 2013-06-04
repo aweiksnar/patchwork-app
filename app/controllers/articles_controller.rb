@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.order("number_of_votes DESC").order("subtopic_id ASC")
   end
 
   def show

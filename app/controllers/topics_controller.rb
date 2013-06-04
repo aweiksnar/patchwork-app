@@ -68,7 +68,7 @@ class TopicsController < ApplicationController
     @vote = Vote.new
     @topic = Topic.find_by_id(params[:id])
     @article = Article.new
-    @articles = Article.where(:level => 1)
+    @articles = Article.where(:level => 1).order("number_of_votes DESC")
 
     if request.headers['X-PJAX']
       render :layout => false
@@ -77,7 +77,7 @@ class TopicsController < ApplicationController
 
   def int_articles
     @vote = Vote.new
-    @articles = Article.where(:level => 2)
+    @articles = Article.where(:level => 2).order("number_of_votes DESC")
     @topic = Topic.find_by_id(params[:id])
     @article = Article.new
     if request.headers['X-PJAX']
@@ -87,7 +87,7 @@ class TopicsController < ApplicationController
 
   def adv_articles
     @vote = Vote.new
-    @articles = Article.where(:level => 3)
+    @articles = Article.where(:level => 3).order("number_of_votes DESC")
     @topic = Topic.find_by_id(params[:id])
     @article = Article.new
     if request.headers['X-PJAX']
