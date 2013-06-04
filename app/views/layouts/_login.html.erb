@@ -1,0 +1,22 @@
+<div id="login-form" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="subtopic-add-form" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="login">Login</h3>
+  </div>
+
+  <div class="modal-body">
+    <%= form_tag "/sessions" do %>
+      <%= label_tag :email, "Email:" %>
+      <%= email_field_tag :email %>
+
+      <%= label_tag :password, "Password:" %>
+      <%= password_field_tag :password %>
+  </div>
+
+  <div class="modal-footer">
+      <%= submit_tag "Login", :class => "btn btn-success" %>
+    <% end %>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
