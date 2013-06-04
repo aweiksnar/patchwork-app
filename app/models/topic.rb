@@ -5,7 +5,7 @@ class Topic < ActiveRecord::Base
   require 'open-uri'
   require 'pp'
 
-  has_many :subtopics
+  has_many :subtopics, dependent: :destroy
   has_many :articles, through: :subtopics
   belongs_to :category
 
