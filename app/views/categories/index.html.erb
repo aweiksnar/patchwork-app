@@ -18,9 +18,13 @@
       <tr>
         <td><%= category.title %></td>
 
-        <td><%= link_to 'Show', category_url(category) %></td>
-        <td><%= link_to 'Edit', edit_category_url(category) %></td>
-        <td><%= link_to 'Destroy', category_url(category), method: 'delete', data: { confirm: "Do you really want to delete this category?" } %></td>
+        <% if User.find_by_id(session[:user_id]).present? && User.find_by_id(session[:user_id]).admin == true %>
+          <td><%= link_to 'Show', category_url(category) %></td>
+          <td><%= link_to 'Edit', edit_category_url(category) %></td>
+          <td><%= link_to 'Destroy', category_url(category), method: 'delete', data: { confirm: "Do you really want to delete this category?" } %></td>
+        <% end %>
+
+
 
       </tr>
     <% end %>

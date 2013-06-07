@@ -20,9 +20,11 @@
       <td><%= subtopic.title %></td>
       <td><%= subtopic.topic.title %></td>
 
+      <% if (subtopic.user_id == session[:user_id] && session[:user_id].present?) || User.find_by_id(session[:user_id]).present? && User.find_by_id(session[:user_id]).admin == true %>
       <td><%= link_to 'Show', subtopic_url(subtopic) %></td>
       <td><%= link_to 'Edit', edit_subtopic_url(subtopic) %></td>
       <td><%= link_to 'Destroy', subtopic_url(subtopic), method: 'delete', data: { confirm: "Do you really want to delete this subtopic?" } %></td>
+      <% end %>
 
     </tr>
   <% end %>
