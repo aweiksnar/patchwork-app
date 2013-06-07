@@ -43,7 +43,9 @@
                 </div>
                 <% end %>
 
+                  <% if notice.present? %>
                   <div class="alert alert-success"><%= notice %></div>
+                  <% end %>
 
                 <% @articles.where(:subtopic_id => params[:subtopic_id]).each do |article| %>
 

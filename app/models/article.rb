@@ -21,6 +21,5 @@ class Article < ActiveRecord::Base
   end
   #removed titles from validations
   validates :title, :description, :url, :presence => true
-  validates :title, :description, :url, :uniqueness => true
 
 end
