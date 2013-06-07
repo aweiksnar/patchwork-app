@@ -1,26 +1,33 @@
-<h1>New Topic</h1>
+<div class="row">
+  <section>
+    <div class="container">
+  <h1>New Topic</h1>
 
 
-<%= form_tag(topics_url, method: 'post') do %>
+  <%= form_tag(topics_url, method: 'post') do %>
 
 
-  <div>
-    <%= label_tag :title %><br />
-    <%= text_field_tag :title %>
-  </div>
+    <div>
+      <%= label_tag :title %><br />
+      <%= text_field_tag :title %>
+    </div>
 
-  <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :title) %>
+    <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :title) %>
 
-  <p>Don't see a category here? <%= link_to "Add a new category", new_category_url %></p>
-
-
-  <%= label_tag :wiki_url, "Wikipedia Url" %>
-  <%= text_field_tag :wiki_url %>
-
-  <%= hidden_field_tag :user_id, value: "#{session[:user_id]}" %>
+    <p>Don't see a category here? <%= link_to "Add a new category", new_category_url %></p>
 
 
-  <div>
-    <%= submit_tag "Create Topic", class: "btn btn-success" %>
-  </div>
-<% end %>
+    <%= label_tag :wiki_url, "Wikipedia Url" %>
+    <%= text_field_tag :wiki_url %>
+
+    <%= hidden_field_tag :user_id, value: "#{session[:user_id]}" %>
+
+
+    <div>
+      <%= submit_tag "Create Topic", class: "btn btn-success" %>
+    </div>
+  <% end %>
+
+    </div>
+  </section>
+</div>
