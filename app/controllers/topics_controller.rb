@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   before_filter :authorize_user, only: [:update, :edit, :destroy]
 
   def authorize_user
-    unless Topic.find_by_id(params[:id]) == Topic.find_by_user_id(session[:user_id])
+    unless Topic.find_by_id(params[:id]) == Topic.find_by_user_id(session[:user_id]) || User.find_by_id(session[:user_id]).admin == true
       redirect_to :back, notice: "Hey, not so fast."
     end
   end
