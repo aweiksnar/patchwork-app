@@ -1,10 +1,35 @@
-<footer>
+<div class="row">
+  <footer class="container">
 
+    <nav id="content-nav" class="span3 footer-nav pull-left">
+      <h4>Browse Resources</h4>
+        <ul class="pull-left unstyled">
+          <li><%= link_to "All Topics", topics_url %></li>
+          <li><%= link_to "All Articles", articles_url %></li>
 
+        </ul>
+    </nav>
 
+    <nav id="content-nav" class="span3 footer-nav pull-left">
+      <h4>Help Us Grow</h4>
+      <ul class="pull-left unstyled">
+        <li><%= link_to "Add a Topic", new_topic_url %></li>
+        <li><%= link_to "Add a Subtopic", new_subtopic_url %></li>
+        <li><%= link_to "Add an Article", new_article_url %></li>
+      </ul>
+    </nav>
 
+    <nav id="site-nav" class="span3 footer-nav pull-right">
+      <h4>Other Stuff</h4>
+      <ul class="pull-left unstyled">
+        <li><%= link_to "Home", root_url %></li>
+        <li><%= link_to "About", about_url %></li>
+        <li><%= link_to "Contact", contact_url %></li>
+        <li><%= link_to "PatchWork - Blog", blog_url %></li>
+      </ul>
+    </nav>
 
-
-</footer>
+  </footer>
+</div>
 
 <%= render 'layouts/login' %>

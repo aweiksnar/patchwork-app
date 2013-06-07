@@ -5,6 +5,7 @@ Patchwork::Application.routes.draw do
   get "/contact" => "Pages#contact", as: "contact"
   get "/about" => "Pages#about", as: "about"
   get "/home" => "Pages#home", as: "home"
+  get "/blog" => "Pages#blog", as: "blog"
 
   root :to => "Topics#index"
 
