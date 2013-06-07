@@ -8,7 +8,7 @@ class VotesController < ApplicationController
   def authorize_user
     @vote = Vote.find_by_id(params[:id])
 
-    if @vote.user_id != session[:user_id]
+    if @vote.user_id != session[:user_id] || User.find_by_id(session[:user_id]).admin == true
       redirect_to :back, notice: "Nice try."
     end
   end

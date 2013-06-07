@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :username, :password, :password_confirmation
+  attr_accessible :email, :username, :password, :password_confirmation, :admin
 
   has_many :articles
 
