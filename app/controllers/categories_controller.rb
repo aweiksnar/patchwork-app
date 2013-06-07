@@ -1,6 +1,13 @@
 class CategoriesController < ApplicationController
 
   before_filter :require_signed_in_user, only: [:create, :update, :edit, :destroy]
+  before_filter :authorize_admin, only: [:create, :update, :edit, :destroy]
+
+  def authorize_admin
+    unless User.find_by_id(session[:user_id]).present? && User.find_by_id(session[:user_id]).admin == true
+      redirect_to root_url, notice: "Gotta be an admin for that"
+    end
+  end
 
   def index
     @categories = Category.all
