@@ -1,33 +1,53 @@
-<div class="row">
-  <section>
-    <div class="container">
-  <h1>New Topic</h1>
-
-
-  <%= form_tag(topics_url, method: 'post') do %>
-
-
-    <div>
-      <%= label_tag :title %><br />
-      <%= text_field_tag :title %>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <h1>Submit a Topic</h1>
     </div>
-
-    <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :title) %>
-
-    <p>Don't see a category here? <%= link_to "Add a new category", new_category_url %></p>
-
-
-    <%= label_tag :wiki_url, "Wikipedia Url" %>
-    <%= text_field_tag :wiki_url %>
-
-    <%= hidden_field_tag :user_id, value: "#{session[:user_id]}" %>
-
-
-    <div>
-      <%= submit_tag "Create Topic", class: "btn btn-success" %>
-    </div>
-  <% end %>
-
-    </div>
-  </section>
+  </div>
 </div>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="content">
+
+      <div class="span7">
+
+        <%= form_tag(topics_url, method: 'post') do %>
+
+          <div>
+            <%= label_tag :title, "What topic would you like to submit?" %>
+            <%= text_field_tag :title, nil, 'placeholder' => 'If you know something about this topic please add a subtopic or resource within it.' %>
+          </div>
+
+          <div>
+          <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :title) %>
+          <p>Don't see a category here? <%= link_to "Add a new category", new_category_url %></p>
+          </div>
+
+          <div>
+            <%= label_tag :wiki_url, "Wikipedia Url (*optional)" %>
+            <%= text_field_tag :wiki_url, nil, 'placeholder' => "Enter the Wikipedia URL for your topic and we'll post it"  %>
+          </div>
+          <%= hidden_field_tag :user_id, value: "#{session[:user_id]}" %>
+
+          <div>
+            <%= submit_tag "Create Topic", class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="span5">
+        <div class="fyi">
+          <h4>Here's the haps on facts, Yo! MTV Raps!</h4>
+          <p>So I have to tell you something but promise you won't be mad. This section is reserved for the most ballinest of ballers.</p>
+
+          <p>Snacks on snacks on snacks. PM class is cooler than AM class. Something something, exceptional escorts eat escargot.</p>
+        </div>
+      </div>
+
+    </div><!--end content -->
+
+    </div>
+  </div>
+</section>
