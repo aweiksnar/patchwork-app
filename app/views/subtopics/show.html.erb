@@ -13,7 +13,7 @@
       <th></td>
     </tr>
 
-    <% @subtopic.articles.each do |x| %>
+    <% @subtopic.articles.where(:level => params[:level]).each do |x| %>
 
     <tr>
       <td><%= x.id %></td>
@@ -26,38 +26,4 @@
     <% end %>
   </table>
 
-
-
 </div>
-
-<!-- ######Previously On The Page -->
-<!-- <p>
-  <b>Topic:</b>
-  <%# @subtopic.topic.title %>
-</p> -->
-
-<!-- <h2>Add a New Article to <%= @subtopic.title %></h2> -->
-<%# form_tag articles_url do %>
-
-  <%#  label_tag :title, "Title" %>
-  <%#  text_field_tag :title  %>
-
-  <%#  label_tag :url, "URL" %>
-  <%#  text_field_tag :url  %>
-
-  <%#  label_tag :description, "Description" %>
-  <%#  text_field_tag :description  %>
-
-  <%#  label_tag :level, "Beginner" %>
-  <%# radio_button_tag(:level, 1) %>
-
-  <%#  label_tag :level, "Intermediate" %>
-  <%#  radio_button_tag(:level, 2) %>
-
-  <%#  label_tag :level, "Advanced" %>
-  <%#  radio_button_tag(:level, 3) %>
-
-  <%# hidden_field_tag :subtopic_id, @subtopic.id %>
-<%# submit_tag "Add" %>
-<%# end %>
-
