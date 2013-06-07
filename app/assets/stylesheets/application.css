@@ -21,7 +21,7 @@ section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
 .clear {clear:both;}
 
 .subtopic-intro {
-  background-color: #EBEBEB;
+  background-color: #fff;
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -webkit-box-shadow: inset 0px 0px 4px 4px #ccc;
@@ -36,17 +36,24 @@ section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
     padding: 10px;
 }
 
-.vote-module {width:100px;}
-.vote-button {border:none; border-radius: 50px; height: 50px; width: 50px;}
-.vote-button:hover {background-color:#51A351; color:#fff;}
+.vote-module {}
+.vote-button {background: url(vote.png) no-repeat #efefef 0 1px; border: none; border-radius: 50px; height: 50px; width: 50px;}
+.vote-button:hover {background-color:#54A9A3; color:#fff;}
 
-
+.subtopic-content {border-bottom:#efefef thin solid; padding: 15px;}
 .subtopic-content p {font-style: italic;}
 
-.subtopic-description {width: 595px;}
+.subtopic-description {width: 565px;}
 
-#subtopic-aside {border: 1px solid #DDDDDD;}
+#subtopic-aside {  }
+#subtopic-aside > ul {list-style-type: none; margin-bottom: 20px;}
+#subtopic-aside > ul li {border-bottom: thin dotted #ccc;}
+#subtopic-aside > ul li:nth-last-child(1) {border-bottom: none;}
+#subtopic-aside > ul li a {display: block; padding: 5px; transition: background-color 150ms ease 0s;}
+#subtopic-aside > ul li:hover a {background-color: #eee;}
 
+
+li:nth-last-child:(1)
 .grey-gradient {
   -webkit-box-shadow: 3px 3px 5px 1px #cccccc;
   box-shadow: 3px 3px 5px 1px #cccccc;
@@ -58,7 +65,7 @@ section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
 }
 
 
-.bgwhite {background-color:#fff;}
+.bgwhite {background-color:#fff; border-top: #efefef solid 1px;}
 
 .p0 {padding:0;}
 .p5 {padding:5px;}
@@ -72,8 +79,11 @@ section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
 .m15-top {margin-top: 15px}
 .m40-top {margin-top: 40px}
 
-footer {background-color:#EBEBEB; height:200px;}
+footer {height:200px; padding: 30px 15px 0;}
 
+
+.footer-nav > ul > li {border-bottom:#efefef 2px dotted; margin-bottom: 5px;}
+footer h4 {text-decoration: underline;}
 /* Dashboard */
 
 .module {margin-bottom: 25px;}
@@ -85,5 +95,9 @@ footer {background-color:#EBEBEB; height:200px;}
 /* Authentication Nav */
 #authenticate a {display: inline-block; padding: 10px 15px;}
 
-
+#main, aside {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+}
 

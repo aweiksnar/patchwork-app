@@ -71,28 +71,24 @@
 
             <div class="span3">
               <aside id="subtopic-aside" class="span3 p10 radius">
-              <h2>Subtopics</h2>
+                <h2>Subtopics</h2>
 
-              <div class="accordion" id="accordion2">
-                <% @topic.articles.where(:level => 3).each do |article| %>
-                  <div class="accordion-group">
-                    <div class="accordion-heading">
-                      <%= link_to article.subtopic.title, adv_articles_url({:subtopic_id => article.subtopic.id}) %>
-                    </div>
-                  </div>
-                <% end %>
-                <% @topic.subtopics.each do |subtopic| %>
-                  <% if subtopic.articles.count == 0 %>
-                    <div class="accordion-group">
-                      <div class="accordion-heading">
-                      <%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%>
-                      </div>
-                    </div>
-                  <% else %>
+                <ul>
+                  <% @topic.articles.where(:level => 1).each do |article| %>
+                    <li><%= link_to article.subtopic.title, beg_articles_url({:subtopic_id => article.subtopic.id}) %></li>
                   <% end %>
+                </ul>
+
+                <% @topic.subtopics.each do |subtopic| %>
+                    <% if subtopic.articles.count == 0 %>
+                      <ul>
+                        <li><% link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%></li>
+                      </ul>
+                    <% else %>
+                    <% end %>
                 <% end %>
-              </div>
-              <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
+
+                  <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
               </aside>
 
             </div><!--column end-->
@@ -103,9 +99,9 @@
   </div>
 
 </section>
-</div>
-
 </div><!--end row -->
+
+</div>
 
 <%= render 'subtopic_modal' %>
 <%= render 'article_modal' %>
