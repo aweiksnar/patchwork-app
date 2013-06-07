@@ -41,7 +41,7 @@
                   <a href="#article_form" role="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#article-form">Submit an Article</a>
                 </div>
                 <% end %>
-                 <% @articles.where(:subtopic_id => params[:subtopic_id]).sort_by { |article| article.votes.count }.reverse.each do |article| %>
+                 <% @articles.where(:subtopic_id => params[:subtopic_id]).each do |article| %>
 
                 <div class="subtopic-content clearfix">
                   <div class="vote-module pull-left">
@@ -60,7 +60,7 @@
                 </div><!--subtopic content end -->
                   <% end %>
                   <% if params[:subtopic_id].present? %>
-                  <div id="subtopic-footer"><p>Not finding a great resource? Check out everything <%= link_to "Beyond the Top 20", subtopic_url(params[:subtopic_id]) %></div>
+                  <div id="subtopic-footer"><p>Not finding a great resource? Check out everything <%= link_to "Beyond the Top 20", subtopic_url(params[:subtopic_id], :level => 2) %></div>
                   <% end %>
 
 

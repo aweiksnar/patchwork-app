@@ -19,7 +19,7 @@
       <tr>
         <td><%= link_to topic.title, topic_url(topic) %>
 
-        <% if topic.user_id == session[:user_id] %>
+        <% if topic.user_id == session[:user_id] && session[:user_id].present? %>
           <span class="details">( <%= link_to 'Edit', edit_topic_url(topic) %> | <%= link_to 'Destroy', topic_url(topic), method: 'delete', data: { confirm: "Do you really want to delete this topic?" } %> )</span></td>
         <% end %>
         <td><%= topic.category.title %></td>

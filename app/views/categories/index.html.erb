@@ -1,28 +1,29 @@
-<h1>Categories</h1>
+<div class="container">
+  <h1>Categories</h1>
 
-<p><%= link_to 'Add a New Category', new_category_url %></p>
+  <p><%= link_to 'Add a New Category', new_category_url %></p>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Category title</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Category title</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-  <tbody>
-  <% @categories.each do |category| %>
-    <tr>
-      <td><%= category.title %></td>
+    <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.title %></td>
 
-      <td><%= link_to 'Show', category_url(category) %></td>
-      <td><%= link_to 'Edit', edit_category_url(category) %></td>
-      <td><%= link_to 'Destroy', category_url(category), method: 'delete', data: { confirm: "Do you really want to delete this category?" } %></td>
+        <td><%= link_to 'Show', category_url(category) %></td>
+        <td><%= link_to 'Edit', edit_category_url(category) %></td>
+        <td><%= link_to 'Destroy', category_url(category), method: 'delete', data: { confirm: "Do you really want to delete this category?" } %></td>
 
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

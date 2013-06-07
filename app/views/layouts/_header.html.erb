@@ -37,7 +37,7 @@
         <li><%= link_to "#{User.find_by_id(session[:user_id]).username.capitalize} : #{User.find_by_id(session[:user_id]).total_points(user_articles)}", user_url(session[:user_id]) %> |
             <%= link_to "Log Out", sessions_url, :method => :delete %></li>
       <% else %>
-        <li><%= link_to 'Log In', new_session_url %></li>
+        <li><a href="#login_form" data-toggle="modal" data-target="#login-form">Login</a></li>
       <% end %>
       <% if session[:user_id].present? == false %>
         <li><%= link_to 'Sign Up', new_user_url %></li>
