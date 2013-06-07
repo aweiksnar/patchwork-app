@@ -1,50 +1,64 @@
-<div class="row">
-  <section>
-    <div class="container">
-
-    <h1>New Article</h1>
-
-    <%= form_for @article do |f| %>
-
-      <div>
-        <%= f.label :title %><br/>
-        <%= f.text_field :title %>
-      </div>
-
-      <div>
-        <%= f.label :url %><br/>
-        <%= f.text_field :url %>
-      </div>
-
-      <div>
-        <%= f.label :bookmark %><br/>
-        <%= f.check_box :bookmark? %>
-      </div>
-
-      <div>
-        <%= f.label :description %><br/>
-        <%= f.text_area :description %>
-      </div>
-
-      <div>
-      <%= f.select :topic, options_from_collection_for_select(Topic.all, "id", "title") %>
-      </div>
-
-      <div>
-      <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.all, "id", "title") %>
-      </div>
-
-      <div>
-        <%= f.label :level  %>
-        <%= f.select :level, options_for_select([['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]], 1) %>
-      </div>
-
-
-      <div>
-        <%= f.submit "Create Article" %>
-      </div>
-    <% end %>
-
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <h1>Submit an Article</h1>
     </div>
-  </section>
+  </div>
 </div>
+
+<section>
+   <div class="container">
+    <div class="row">
+
+    <div class="content">
+      <div class="span7">
+        <%= form_for @article do |f| %>
+          <div>
+            <%= f.label :title, "What's the title of the article?" %>
+            <%= f.text_field :title, "placeholder" => 'Enter the Article Title Here. Ex. - Bears, hunting killing, machines.' %>
+          </div>
+
+          <div>
+            <%= f.label :url, "What website is this from?" %>
+            <%= f.text_field :url, "placeholder" => 'Enter the website URL here. You got this...' %>
+          </div>
+
+          <div>
+            <%= f.label :description, "We want specifics!" %>
+            <%= f.text_area :description, "placeholder" => "Tell everyone why this resource is great. Why is awesome? What does it do that others don't? Make a great case and it will be voted up!" %>
+          </div>
+
+          <div>
+            <%= f.label :topic, "What topic is this resource for?"  %>
+            <%= f.select :topic, options_from_collection_for_select(Topic.all, "id", "title") %>
+          </div>
+
+          <div>
+            <%= f.label :subtopic_id, "And within that topic, what subtopic?"  %>
+            <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.all, "id", "title") %>
+          </div>
+
+          <div>
+            <%= f.label :level  %>
+            <%= f.select :level, options_for_select([['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]], 1) %>
+          </div>
+
+
+          <div>
+            <%= f.submit "Create Article", class: "btn btn-success" %>
+          </div>
+        <% end %><!-- end of left column -->
+      </div>
+
+      <div class="span5">
+        <div class="fyi">
+          <h4>Here's the haps on facts, Yo! MTV Raps!</h4>
+          <p>So I have to tell you something but promise you won't be mad. This section is reserved for the most ballinest of ballers.</p>
+
+          <p>Snacks on snacks on snacks. PM class is cooler than AM class. Something something, exceptional escorts eat escargot.</p>
+        </div>
+      </div>
+    </div><!-- Content end -->
+  </div>
+  </div>
+</section>
