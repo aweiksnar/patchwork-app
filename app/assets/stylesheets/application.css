@@ -15,7 +15,7 @@
 ol.welcome-list {font-weight:bold; margin: 0 0 0 25px;}
 
 .cursive {font-family: 'Courgette',cursive; font-weight: lighter;}
-section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
+section {background-color: #BCD3DE; padding: 0 0 25px;}
 
 
 .clear {clear:both;}
@@ -23,18 +23,15 @@ section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
 .subtopic-intro {
   background-color: #fff;
   border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -webkit-box-shadow: inset 0px 0px 4px 4px #ccc;
-  box-shadow: inset 0px 0px 4px 4px #ccc;
   padding: 20px;
 }
 
-#content {}
-#subtopic-title, #subtopic-footer {
-    border-bottom: 1px solid #DDDDDD;
-    margin: 0 0 10px;
-    padding: 10px;
-}
+.content {margin-top: 40px;}
+
+.fyi {background-color:#eee; border:#ccc thin solid; margin-top: 25px; padding: 10px;}
+
+
+#subtopic-title, #subtopic-footer {border-bottom: 1px solid #DDDDDD; margin: 0 0 10px; padding: 10px;}
 
 .vote-module {}
 .vote-button {background: url(vote.png) no-repeat #efefef 0 1px; border: none; border-radius: 50px; height: 50px; width: 50px;}
@@ -52,20 +49,8 @@ section {box-shadow: 0 25px 10px rgba(0, 0, 0, 0.1);}
 #subtopic-aside > ul li a {display: block; padding: 5px; transition: background-color 150ms ease 0s;}
 #subtopic-aside > ul li:hover a {background-color: #eee;}
 
+.radius {border-radius: 3px; -webkit-border-radius: 3px;}
 
-li:nth-last-child:(1)
-.grey-gradient {
-  -webkit-box-shadow: 3px 3px 5px 1px #cccccc;
-  box-shadow: 3px 3px 5px 1px #cccccc;
-}
-
-.radius {
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-}
-
-
-.bgwhite {background-color:#fff; border-top: #efefef solid 1px;}
 
 .p0 {padding:0;}
 .p5 {padding:5px;}
@@ -80,8 +65,6 @@ li:nth-last-child:(1)
 .m40-top {margin-top: 40px}
 
 footer {height:200px; padding: 30px 15px 0;}
-
-
 .footer-nav > ul > li {border-bottom:#efefef 2px dotted; margin-bottom: 5px;}
 footer h4 {text-decoration: underline;}
 /* Dashboard */
@@ -100,4 +83,6 @@ footer h4 {text-decoration: underline;}
   border: 1px solid #ccc;
   padding: 15px;
 }
+
+#article_description {height: 150px;}
 
