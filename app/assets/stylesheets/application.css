@@ -36,6 +36,8 @@ section {background-color: #BCD3DE; padding: 0 0 25px;}
 .vote-module {}
 .vote-button {background: url(vote.png) no-repeat #efefef 0 1px; border: none; border-radius: 50px; height: 50px; width: 50px;}
 .vote-button:hover {background-color:#54A9A3; color:#fff;}
+.voted {background-color:#54A9A3; color:#fff;}
+.voted-article {background: url(vote.png) no-repeat #54A9A3 0 1px; border: none; border-radius: 50px; height: 50px; width: 50px; color:#fff}
 
 .subtopic-content {border-bottom:#efefef thin solid; padding: 15px;}
 .subtopic-content p {font-style: italic;}

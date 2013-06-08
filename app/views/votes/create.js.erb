@@ -1,0 +1,1 @@
+$("#article_<%= Article.find_by_id(params[:vote][:article_id]).id %>").val("<%= Article.find_by_id(params[:vote][:article_id]).number_of_votes %>").addClass("voted")
