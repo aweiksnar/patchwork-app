@@ -13,7 +13,12 @@ class ApplicationController < ActionController::Base
       redirect_to :back, notice: "You must be logged in for that."
     end
   end
-
-
-
 end
+
+
+
+
+
+
+
+
