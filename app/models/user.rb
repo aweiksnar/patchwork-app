@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   validates :username, :email,  :uniqueness => true
   has_secure_password
 
+  before_validation do |user|
+    user.email = user.email.downcase
+  end
+
   def vote_points(articles)
     if articles == []
       return 0
