@@ -1,12 +1,46 @@
-<div class="row">
-  <section>
-    <div class="container">
-      <h1>Home</h1>
 
+<head>
+  <title>Patch Learn</title>
+  <meta charset="utf-8"/>
+  <link href='http://fonts.googleapis.com/css?family=Sintony|Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Purple+Purse' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="patchlearn.css">
+</head>
+<body>
 
+  <div id="maincontainer">
 
+    <div class="exploregroup group">
+            <h3 id="mainsearch">Explore!</h3>
+
+          <ul class="listgroup">
+            <% @categories.each do |category| %>
+              <li><%= link_to category.title, categories_url %></li>
+            <% end %>
+          </ul>
 
 
     </div>
-  </section>
-</div>
+  </div>
+
+
+    <p id="description">PatchLearn puts learning at your fingertips! All of you have to do is search a topic of interest and you will find articles customized for you. We also encourage you to submit articles to help grow our database of knowledge! Happy surfing, Happy posting!</p>
+
+
+  <!--   <div id="footerlinks">
+    <ul class="links">
+      <li class="footerlist items">
+        <img src="assets/link1.jpg"/>
+        <a class="listitems" href="aboutus.html">About Us</a>
+      </li>
+      <li class="footerlist items">
+        <img class="listitems" id="hearts" src="assets/link2.jpg" width="70px"/>
+      <a href="contact.html">Contact</a>
+      </li>
+    </ul>
+    </div>
+  <footer class="mainfooter group">
+  </footer> -->
+</body>
+
+

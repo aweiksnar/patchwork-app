@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   end
 
   def home
+    @categories = Category.all
   end
 end
