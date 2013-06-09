@@ -51,10 +51,15 @@
 
                 <div class="subtopic-content clearfix">
                   <div class="vote-module pull-left">
-                    <%= form_for @vote do |f| %>
+                    <%= form_for @vote, :remote => true do |f| %>
                       <%= f.hidden_field :user_id, value: "#{session[:user_id]}"%>
                       <%= f.hidden_field :article_id, value: "#{article.id}" %>
-                      <%= f.submit "#{article.votes.count}", class: "vote-button", "data-toggle" => "tooltip", "title" => "first tooltip" %>
+
+                      <% if article.votes.where(:user_id => session[:user_id]).present? %>
+                      <%= f.submit "#{article.votes.count}", class: "voted-article", "data-toggle" => "tooltip", "title" => "first tooltip" , "id" => "article_#{article.id}" %>
+                      <% else %>
+                      <%= f.submit "#{article.votes.count}", class: "vote-button", "data-toggle" => "tooltip", "title" => "first tooltip" , "id" => "article_#{article.id}" %>
+                      <% end %>
                       <% end %>
                   </div>
 
@@ -65,6 +70,7 @@
                   </div>
                 </div><!--subtopic content end -->
                 <% end %>
+
                 <% if params[:subtopic_id].present? %>
                 <div id="subtopic-footer"><p>Not finding a great resource? Check out everything <%= link_to "Beyond the Top 20", subtopic_url(params[:subtopic_id], :level => 1) %></div>
                 <% end %>
