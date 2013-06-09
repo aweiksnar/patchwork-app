@@ -86,16 +86,14 @@
                   <% @topic.articles.where(:level => 1).each do |article| %>
                     <li><%= link_to article.subtopic.title, beg_articles_url({:subtopic_id => article.subtopic.id}) %></li>
                   <% end %>
-                </ul>
 
-                <% @topic.subtopics.each do |subtopic| %>
+                  <% @topic.subtopics.each do |subtopic| %>
                     <% if subtopic.articles.count == 0 %>
-                      <ul>
-                        <li><% link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%></li>
-                      </ul>
+                        <li><%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%></li>
                     <% else %>
                     <% end %>
-                <% end %>
+                  <% end %>
+                </ul>
 
                   <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
               </aside>
