@@ -56,9 +56,9 @@
                       <%= f.hidden_field :article_id, value: "#{article.id}" %>
 
                       <% if article.votes.where(:user_id => session[:user_id]).present? %>
-                      <%= f.submit "#{article.votes.count}", class: "voted-article", "data-toggle" => "tooltip", "title" => "first tooltip" , "id" => "article_#{article.id}" %>
+                      <%= f.submit "#{article.votes.count}", class: "voted-article", "data-toggle" => "tooltip", "title" => "Voted" , "id" => "article_#{article.id}" %>
                       <% else %>
-                      <%= f.submit "#{article.votes.count}", class: "vote-button", "data-toggle" => "tooltip", "title" => "first tooltip" , "id" => "article_#{article.id}" %>
+                      <%= f.submit "#{article.votes.count}", class: "vote-button", "data-toggle" => "tooltip", "title" => "Vote" , "id" => "article_#{article.id}" %>
                       <% end %>
                       <% end %>
                   </div>
