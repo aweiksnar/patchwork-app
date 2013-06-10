@@ -56,9 +56,9 @@
                       <%= f.hidden_field :article_id, value: "#{article.id}" %>
 
                       <% if article.votes.where(:user_id => session[:user_id]).present? %>
-                      <%= f.submit "#{article.votes.count}", class: "voted-article", "data-toggle" => "tooltip", "title" => "first tooltip" , "id" => "article_#{article.id}" %>
+                      <%= f.submit "#{article.votes.count}", class: "voted-article", "data-toggle" => "tooltip", "title" => "Voted" , "id" => "article_#{article.id}" %>
                       <% else %>
-                      <%= f.submit "#{article.votes.count}", class: "vote-button", "data-toggle" => "tooltip", "title" => "first tooltip" , "id" => "article_#{article.id}" %>
+                      <%= f.submit "#{article.votes.count}", class: "vote-button", "data-toggle" => "tooltip", "title" => "Vote" , "id" => "article_#{article.id}" %>
                       <% end %>
                       <% end %>
                   </div>
@@ -86,16 +86,14 @@
                   <% @topic.articles.where(:level => 1).each do |article| %>
                     <li><%= link_to article.subtopic.title, beg_articles_url({:subtopic_id => article.subtopic.id}) %></li>
                   <% end %>
-                </ul>
 
-                <% @topic.subtopics.each do |subtopic| %>
+                  <% @topic.subtopics.each do |subtopic| %>
                     <% if subtopic.articles.count == 0 %>
-                      <ul>
                         <li><%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%></li>
-                      </ul>
                     <% else %>
                     <% end %>
-                <% end %>
+                  <% end %>
+                </ul>
 
                   <a href="#subtopic-form" role="button" class="btn btn-success" data-toggle="modal" data-target="#subtopic-form">Submit a Sub Topic</a>
               </aside>
