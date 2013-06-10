@@ -15,31 +15,31 @@
         <%= form_for @article do |f| %>
           <div>
             <%= f.label :title, "What's the title of the article?" %>
-            <%= f.text_field :title, "placeholder" => 'Enter the Article Title Here. Ex. - Bears, hunting killing, machines.' %>
+            <%= f.text_field :title, "placeholder" => 'ex. Shakespeare Quotes' %>
           </div>
 
           <div>
-            <%= f.label :url, "What website is this from?" %>
-            <%= f.text_field :url, "placeholder" => 'Enter the website URL here. You got this...' %>
+            <%= f.label :url, "URL" %>
+            <%= f.text_field :url, "placeholder" => 'ex. http://absoluteshakespeare.com/trivia/quotes/quotes.htm' %>
           </div>
 
           <div>
-            <%= f.label :description, "We want specifics!" %>
-            <%= f.text_area :description, "placeholder" => "Tell everyone why this resource is great. Why is awesome? What does it do that others don't? Make a great case and it will be voted up!" %>
+            <%= f.label :description, "Why this resource?" %>
+            <%= f.text_area :description, "placeholder" => "Tell everyone why this resource is great." %>
           </div>
 
           <div>
-            <%= f.label :topic, "What topic is this resource for?"  %>
+            <%= f.label :topic, "Topic?"  %>
             <%= f.select :topic, options_from_collection_for_select(Topic.all, "id", "title") %>
           </div>
 
           <div>
-            <%= f.label :subtopic_id, "And within that topic, what subtopic?"  %>
+            <%= f.label :subtopic_id, "Within that topic, what subtopic?"  %>
             <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.all, "id", "title") %>
           </div>
 
           <div>
-            <%= f.label :level  %>
+            <%= f.label :level, "Choose Level:"  %>
             <%= f.select :level, options_for_select([['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]], 1) %>
           </div>
 

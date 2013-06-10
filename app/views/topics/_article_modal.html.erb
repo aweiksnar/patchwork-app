@@ -6,29 +6,30 @@
   <div class="modal-body">
     <%= form_for @article do |f| %>
 
-      <%= f.label :title, "Title" %>
-      <%= f.text_field :title  %>
+      <%= f.label :title, "What's the title of the article?" %>
+      <%= f.text_field :title, "placeholder" => 'ex. Shakespeare Quotes' %>
 
       <%= f.label :url, "URL" %>
-      <%= f.text_field :url  %>
+      <%= f.text_field :url, "placeholder" => 'ex. http://absoluteshakespeare.com/trivia/quotes/quotes.htm'   %>
 
-      <%= f.label :description, "Description" %>
-      <%= f.text_field :description  %>
+      <%= f.label :description, "Why this resource?" %>
+      <%= f.text_field :description, "placeholder" => "Tell everyone why this resource is great."  %>
 
       <%= f.hidden_field :user_id, value: "#{session[:user_id]}" %>
 
-      <%= f.label :level  %>
+      <%= f.label :level, "Choose Level:"  %>
       <%= f.select :level, options_for_select([['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]], 1) %>
 
-      <div>
+
+      <%= f.label :subtopic_id, "Within that topic, what subtopic?"  %>
       <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.where(:topic_id => params[:id]), "id", "title") %>
-      </div>
+
 
 
 
   </div>
   <div class="modal-footer">
-    <%= f.submit "Add", :class => "btn btn-success" %>
+    <%= f.submit "Add", :class => "btn btn-success pull-left" %>
       <% end %>
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>

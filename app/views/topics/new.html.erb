@@ -17,12 +17,13 @@
 
           <div>
             <%= label_tag :title, "What topic would you like to submit?" %>
-            <%= text_field_tag :title, nil, 'placeholder' => 'If you know something about this topic please add a subtopic or resource within it.' %>
+            <%= text_field_tag :title, nil, 'placeholder' => 'Please add a subtopic or resource within it.' %>
           </div>
 
           <div>
-          <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :title) %>
-          <p>Don't see a category here? <%= link_to "Add a new category", new_category_url %></p>
+            <%= label_tag :title, "Select the Category this topic falls into" %>
+            <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :title), class: "dropdown-submenu" %>
+            <p class="details">Don't see a category here? <%= link_to "Add a new category", new_category_url %></p>
           </div>
 
           <div>

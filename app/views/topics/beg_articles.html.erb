@@ -91,7 +91,7 @@
                 <% @topic.subtopics.each do |subtopic| %>
                     <% if subtopic.articles.count == 0 %>
                       <ul>
-                        <li><% link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%></li>
+                        <li><%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%></li>
                       </ul>
                     <% else %>
                     <% end %>

@@ -75,7 +75,7 @@ footer h4 {text-decoration: underline;}
 .module h2 {line-height: 24px;}
 .user_score {border:1px solid #000; margin:0 0 25px;}
 .score_holder {padding:0 20px; margin:0 5px;}
-.details {font-size: 12px;}
+.details {font-size: .85em;}
 
 /* Authentication Nav */
 #authenticate a {display: inline-block; padding: 10px 15px;}
@@ -86,5 +86,13 @@ footer h4 {text-decoration: underline;}
   padding: 15px;
 }
 
-#article_description {height: 150px;}
+#article_description {height: 110px;}
+#new_article {margin:0;}
+form div {margin-bottom: 20px;}
+form div .btn-success {width:82%;}
 
+/* Dashboard Tabs */
+#user-actions .nav li, #user-actions .nav li a {line-height: 26px; padding:4px 12px;}
+#user-actions .nav li.active a {color:#000;}
+#user-actions .nav li.active a:hover {background:none;}
+/*#user-actions .nav li a:hover {background:none;}*/

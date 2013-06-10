@@ -1,20 +1,50 @@
-<h1>New Subtopic</h1>
-
-
-<%= form_tag(subtopics_url, method: 'post') do %>
-
-
-  <div>
-    <%= label_tag :title %><br />
-    <%= text_field_tag :title %>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <h1>Submit a Subtopic</h1>
+    </div>
   </div>
+</div>
 
-  <div>
-    <%= label_tag :topic_id %><br />
-    <%= number_field_tag :topic_id %>
-  </div>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="content">
 
-  <div>
-    <%= submit_tag "Create Subtopic" %>
+      <div class="span7">
+
+        <%= form_tag(subtopics_url, method: 'post') do %>
+
+
+          <div>
+            <%= label_tag :title %><br />
+            <%= text_field_tag :title %>
+          </div>
+
+          <div>
+            <%= label_tag :topic_id %><br />
+            <%= select_tag :topic_id, options_from_collection_for_select(Topic.all, :id, :title) %>
+          </div>
+
+          <div>
+            <%= submit_tag "Create Subtopic", :class => "btn btn-success" %>
+          </div>
+        <% end %>
+
+          </div>
+
+      <div class="span5">
+        <div class="fyi">
+          <h4>Here's the haps on facts, Yo! MTV Raps!</h4>
+          <p>So I have to tell you something but promise you won't be mad. This section is reserved for the most ballinest of ballers.</p>
+
+          <p>Snacks on snacks on snacks. PM class is cooler than AM class. Something something, exceptional escorts eat escargot.</p>
+        </div>
+      </div>
+
+    </div><!--end content -->
+
+    </div>
   </div>
-<% end %>
+</section>
+
