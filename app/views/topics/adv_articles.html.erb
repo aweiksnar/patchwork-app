@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container topic-introduction">
   <div class="row">
     <div class="span5">
       <h1><%= @topic.title %></h1>
@@ -22,6 +22,7 @@
             <li><a href="/topics/<%= @topic.id %>/beg_articles.html"><h4>Beginner</h4></a></li>
             <li><a href="/topics/<%= @topic.id %>/int_articles.html"><h4>Intermediate</h4></a></li>
             <li class="active"><h4>Advanced</h4></a></li>
+            <li id="show-hide" class="pull-right active show"></li>
           </ul>
         </div>
       </div>
@@ -34,7 +35,7 @@
         <div class="m10-top container ">
           <div class="row"><!--added to center contents within tab -->
             <div class="span9">
-              <div id="main">
+              <div id="main" class="radius">
 
                 <% if params[:subtopic_id].present? %>
                 <div id="subtopic-title" class="clearfix">
@@ -105,6 +106,6 @@
 </div><!--end row -->
 
 </div>
-
+<%= render 'show_hide_js' %>
 <%= render 'subtopic_modal' %>
 <%= render 'article_modal' %>

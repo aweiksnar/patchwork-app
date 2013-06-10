@@ -96,3 +96,11 @@ form div .btn-success {width:82%;}
 #user-actions .nav li.active a {color:#000;}
 #user-actions .nav li.active a:hover {background:none;}
 /*#user-actions .nav li a:hover {background:none;}*/
+
+/* Topics */
+.topic-introduction {height:80px; overflow: hidden;}
+.newHeight {height:100%;}
+#show-hide {padding: 0 10px 13px; height: 17px; margin: 20px 0 0; width:20px;}
+.show {background: url(more.png) no-repeat 7px 3px #BCD3DE;}
+.hide {background: url(less.png) no-repeat 7px 3px #BCD3DE;}
+
