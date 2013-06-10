@@ -46,7 +46,7 @@ section {background-color: #BCD3DE; padding: 0 0 25px;}
 
 #subtopic-aside {  }
 #subtopic-aside > ul {list-style-type: none; margin-bottom: 20px;}
-#subtopic-aside > ul li {border-bottom: thin dotted #ccc;}
+#subtopic-aside > ul li, .module-style > ul li {border-bottom: thin dotted #ccc;}
 #subtopic-aside > ul li:nth-last-child(1) {border-bottom: none;}
 #subtopic-aside > ul li a {display: block; padding: 5px; transition: background-color 150ms ease 0s;}
 #subtopic-aside > ul li:hover a {background-color: #eee;}
@@ -80,7 +80,7 @@ footer h4 {text-decoration: underline;}
 /* Authentication Nav */
 #authenticate a {display: inline-block; padding: 10px 15px;}
 
-#main, aside {
+#main, aside, .module-style {
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 15px;
