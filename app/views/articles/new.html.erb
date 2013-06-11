@@ -6,6 +6,8 @@
   </div>
 </div>
 
+<%= notice %>
+
 <section>
    <div class="container">
     <div class="row">
@@ -29,15 +31,18 @@
           </div>
 
           <div>
-            <%= f.label :subtopic_id, "Within that topic, what subtopic?"  %>
-            <%= f.select :subtopic_id, options_from_collection_for_select(Subtopic.all, "id", "title") %>
+            <%= f.label :subtopic_id, "What subtopic?"  %>
+            <%# f.select :subtopic_id, options_from_collection_for_select(Subtopic.all, "id", "title") %>
+            <%= f.grouped_collection_select :subtopic_id, Topic.all, :subtopics, :title, :id, :title, include_blank: true  %>
           </div>
+
+<%# f.grouped_collection_select :student_id, Course.all, :students, :name, :id, :name, include_blank: true %>
+
 
           <div>
             <%= f.label :level, "Choose Level:"  %>
             <%= f.select :level, options_for_select([['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]], 1) %>
           </div>
-
 
           <div>
             <%= f.submit "Create Article", class: "btn btn-success" %>

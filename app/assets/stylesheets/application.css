@@ -12,6 +12,18 @@
  *= require_tree .
  */
 
+.indexed {
+  background-color: #BCD3DE;
+  background-size: 100%;
+  font-size: 15px;
+  margin-top: -40px;
+  padding-top: 50px;
+}
+
+.indexed-container {
+  background-color: #fff;
+}
+
 ol.welcome-list {font-weight:bold; margin: 0 0 0 25px;}
 
 .cursive {font-family: 'Courgette',cursive; font-weight: lighter;}
