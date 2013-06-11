@@ -91,8 +91,9 @@
                   <% subtopic_list = @topic.articles.where(:level => 3).map {|article| article.subtopic } %>
                   <% subtopic_list.uniq! %>
                   <% subtopic_list.each do |subtopic| %>
-                    <li><%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id }) %></li>
+                    <li><%= link_to subtopic.title, adv_articles_url({:subtopic_id => subtopic.id }) %></li>
                   <% end %>
+
 
                   <% @topic.subtopics.each do |subtopic| %>
                     <% if subtopic.articles.count == 0 %>

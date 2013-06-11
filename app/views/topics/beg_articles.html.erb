@@ -100,6 +100,7 @@
                     <li><%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id }) %></li>
                   <% end %>
 
+
                   <% @topic.subtopics.each do |subtopic| %>
                     <% if subtopic.articles.count == 0 %>
                         <li><%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%></li>
