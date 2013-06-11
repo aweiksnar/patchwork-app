@@ -17,11 +17,11 @@ ol.welcome-list {font-weight:bold; margin: 0 0 0 25px;}
 .cursive {font-family: 'Courgette',cursive; font-weight: lighter;}
 section {background-color: #BCD3DE; padding: 0 0 25px;}
 
+.pink {color:#F57676;}
 
 .clear {clear:both;}
 
 .subtopic-intro {
-  background-color: #fff;
   border-radius: 3px;
   padding: 20px;
 }
@@ -86,6 +86,12 @@ footer h4 {text-decoration: underline;}
   padding: 15px;
 }
 
+.welcome-arrow {background:url(welcome-up.png) no-repeat 0 0; height: 400px; position:relative; width: 670px;}
+.levels-arrow {background:url(welcome-right.png) no-repeat 510px 0; height: 400px; position:relative; width: 670px;}
+#step1 {left: 30px; position: absolute; top: 150px;}
+#step2 {right: 10px; position: absolute; top: 90px;}
+
+
 #article_description {height: 110px;}
 #new_article {margin:0;}
 form div {margin-bottom: 20px;}
@@ -101,6 +107,6 @@ form div .btn-success {width:82%;}
 .topic-introduction {height:80px; overflow: hidden;}
 .newHeight {height:100%;}
 #show-hide {padding: 0 10px 13px; height: 17px; margin: 20px 0 0; width:20px;}
-.show {background: url(more.png) no-repeat 7px 3px #BCD3DE;}
-.hide {background: url(less.png) no-repeat 7px 3px #BCD3DE;}
+.intro-show {background: url(more.png) no-repeat 7px 3px #BCD3DE;}
+.intro-hide {background: url(less.png) no-repeat 7px 3px #BCD3DE;}
 

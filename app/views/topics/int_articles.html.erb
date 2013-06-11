@@ -41,6 +41,12 @@
                   <h2 class="m0  pull-left"><%= Subtopic.find_by_id(params[:subtopic_id]).title %></h2>
                   <a href="#article_form" role="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#article-form">Submit an Article</a>
                 </div>
+                <% else %>
+                  <div class="welcome-arrows">
+                      <div id="step2">
+                        <h2 class="cursive">2. Choose a <br />subtopic to view<br />resources</h2>
+                      </div>
+                  </div>
                 <% end %>
                  <% @articles.where(:subtopic_id => params[:subtopic_id]).each do |article| %>
 
@@ -51,11 +57,11 @@
                       <%= f.hidden_field :article_id, value: "#{article.id}" %>
 
                       <% if article.votes.where(:user_id => session[:user_id]).present? %>
-                      <%= f.submit "#{article.votes.count}", class: "voted-article", "data-toggle" => "tooltip", "title" => "Voted" , "id" => "article_#{article.id}" %>
+                        <%= f.submit "#{article.votes.count}", class: "voted-article", "data-toggle" => "tooltip", "title" => "Voted" , "id" => "article_#{article.id}" %>
                       <% else %>
-                      <%= f.submit "#{article.votes.count}", class: "vote-button", "data-toggle" => "tooltip", "title" => "Vote" , "id" => "article_#{article.id}" %>
+                        <%= f.submit "#{article.votes.count}", class: "vote-button", "data-toggle" => "tooltip", "title" => "Vote" , "id" => "article_#{article.id}" %>
                       <% end %>
-                      <% end %>
+                    <% end %>
                   </div>
 
                   <div class="subtopic-description pull-right">
