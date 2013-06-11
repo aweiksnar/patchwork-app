@@ -86,9 +86,9 @@ footer h4 {text-decoration: underline;}
   padding: 15px;
 }
 
-.welcome-arrow {background:url(welcome-up.png) no-repeat 0 0; height: 400px; position:relative; width: 670px;}
+.welcome-arrow {background:url(welcome-up.png) no-repeat 75px 0; height: 400px; position:relative; width: 670px;}
 .levels-arrow {background:url(welcome-right.png) no-repeat 510px 0; height: 400px; position:relative; width: 670px;}
-#step1 {left: 30px; position: absolute; top: 150px;}
+#step1 {left: 120px; position: absolute; top: 150px;}
 #step2 {right: 10px; position: absolute; top: 90px;}
 
 
