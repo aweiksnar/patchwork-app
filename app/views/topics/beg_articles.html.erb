@@ -94,14 +94,21 @@
                 <h2>Subtopics</h2>
 
                 <ul>
-                  <% @topic.articles.where(:level => 1).each do |article| %>
-                    <li><%= link_to article.subtopic.title, beg_articles_url({:subtopic_id => article.subtopic.id}) %></li>
-                  <% end %>
+<!--                   <%# @topic.articles.where(:level => 1).each do |article| %>
+                    <li><%# link_to article.subtopic.title, beg_articles_url({:subtopic_id => article.subtopic.id}) %></li>
+                  <%# end %>
+ -->
+                    <% subtopic_list = @topic.articles.where(:level => 1).map {|article| article.subtopic } %>
+
+                    <% subtopic_list.uniq! %>
+
+                    <% subtopic_list.each do |subtopic| %>
+                      <li><%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id }) %></li>
+                    <% end %>
 
                   <% @topic.subtopics.each do |subtopic| %>
                     <% if subtopic.articles.count == 0 %>
                         <li><%= link_to subtopic.title, beg_articles_url({:subtopic_id => subtopic.id})%></li>
-                    <% else %>
                     <% end %>
                   <% end %>
                 </ul>

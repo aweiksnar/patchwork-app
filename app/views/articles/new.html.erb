@@ -36,9 +36,6 @@
             <%= f.grouped_collection_select :subtopic_id, Topic.all, :subtopics, :title, :id, :title, include_blank: true  %>
           </div>
 
-<%# f.grouped_collection_select :student_id, Course.all, :students, :name, :id, :name, include_blank: true %>
-
-
           <div>
             <%= f.label :level, "Choose Level:"  %>
             <%= f.select :level, options_for_select([['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]], 1) %>
