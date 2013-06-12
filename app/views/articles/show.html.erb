@@ -1,28 +1,35 @@
-<h1>Article #<%= @article.id %></h1>
+<div class="container">
 
-<p>
-  <b>Title:</b>
-  <%= @article.title %>
-</p>
+  <% if notice.present? %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
 
-<p>
-  <b>Url:</b>
-  <%= @article.url %>
-</p>
+  <h1><%= @article.title %></h1>
 
-<p>
-  <b>Bookmark:</b>
-  <%= @article.bookmark %>
-</p>
+  <p>
+    <b>URL:</b>
+    <%= link_to @article.url, @article.url %>
+  </p>
 
-<p>
-  <b>Description:</b>
-  <%= @article.description %>
-</p>
+  <p>
+    <b>Bookmark:</b>
+    <%= @article.bookmark %>
+  </p>
 
-<p>
-  <b>Subtopic:</b>
-  <%= @article.subtopic_id %>
-</p>
+  <p>
+    <b>Description:</b>
+    <%= @article.description %>
+  </p>
 
+  <p>
+    <b>Subtopic:</b>
+    <%= @article.subtopic_id %>
+  </p>
+
+  <p>
+    <b>Number of Votes:</b>
+    <%= @article.number_of_votes %>
+  </p>
+
+</div>
 

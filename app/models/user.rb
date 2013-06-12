@@ -18,15 +18,12 @@ class User < ActiveRecord::Base
       return 0
     else
       vote_points = []
-
       articles.each do |article|
         vote_points << article.votes.count
       end
-
       return vote_points.inject { |sum, x| sum + x }
     end
   end
-
 
   def submission_points(articles)
     articles.count

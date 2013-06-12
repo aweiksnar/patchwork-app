@@ -22,7 +22,7 @@
             <li><a href="/topics/<%= @topic.id %>/beg_articles.html"><h4>Beginner</h4></a></li>
             <li><a href="/topics/<%= @topic.id %>/int_articles.html"><h4>Intermediate</h4></a></li>
             <li class="active"><h4>Advanced</h4></a></li>
-            <li id="show-hide" class="pull-right active show"></li>
+            <li id="show-hide" class="pull-right active intro-show"></li>
           </ul>
         </div>
       </div>
@@ -35,20 +35,21 @@
         <div class="m10-top container ">
           <div class="row"><!--added to center contents within tab -->
             <div class="span9">
-              <div id="main" class="radius">
 
-                <% if params[:subtopic_id].present? %>
-                <div id="subtopic-title" class="clearfix">
-                  <h2 class="m0  pull-left"><%= Subtopic.find_by_id(params[:subtopic_id]).title %></h2>
-                  <a href="#article_form" role="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#article-form">Submit an Article</a>
-                </div>
-                <% else %>
-                  <div class="welcome-arrows">
+                <% unless params[:subtopic_id].present? %>
+                  <div class="levels-arrow">
                     <div id="step2">
                       <h2 class="cursive">2. Choose a <br />subtopic to view<br />resources</h2>
                     </div>
                   </div>
                 <% end %>
+
+                <% if params[:subtopic_id].present? %>
+                  <div id="main" class="radius">
+                    <div id="subtopic-title" class="clearfix">
+                      <h2 class="m0  pull-left"><%= Subtopic.find_by_id(params[:subtopic_id]).title %></h2>
+                      <a href="#article_form" role="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#article-form">Submit an Article</a>
+                    </div>
 
                  <% @articles.where(:subtopic_id => params[:subtopic_id]).each do |article| %>
 
@@ -74,10 +75,11 @@
                 </div><!--subtopic content end -->
               <% end %>
               <% if params[:subtopic_id].present? %>
-              <div id="subtopic-footer"><p>Not finding a great resource? Check out everything <%= link_to "Beyond the Top 20", subtopic_url(params[:subtopic_id], :level => 1) %></div>
+              <div id="subtopic-footer"><p>Not finding a great resource? Check out everything <%= link_to "Beyond the Top 20", subtopic_url(params[:subtopic_id], :level => 3) %></div>
               <% end %>
 
             </div><!--main div end -->
+            <% end %>
 
             </div><!--column end-->
 
@@ -86,9 +88,12 @@
                 <h2>Subtopics</h2>
 
                 <ul>
-                  <% @topic.articles.where(:level => 1).each do |article| %>
-                    <li><%= link_to article.subtopic.title, adv_articles_url({:subtopic_id => article.subtopic.id}) %></li>
+                  <% subtopic_list = @topic.articles.where(:level => 3).map {|article| article.subtopic } %>
+                  <% subtopic_list.uniq! %>
+                  <% subtopic_list.each do |subtopic| %>
+                    <li><%= link_to subtopic.title, adv_articles_url({:subtopic_id => subtopic.id }) %></li>
                   <% end %>
+
 
                   <% @topic.subtopics.each do |subtopic| %>
                     <% if subtopic.articles.count == 0 %>
