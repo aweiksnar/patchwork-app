@@ -1,4 +1,9 @@
 <div class="container">
+
+  <% if notice.present? %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
+
   <h1><%= @article.title %></h1>
 
   <p>

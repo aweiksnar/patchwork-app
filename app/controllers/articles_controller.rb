@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(params[:article])
 
     if @article.save
-     redirect_to article_url(@article)
+     redirect_to article_url(@article), notice: "Article successfully added"
     else
       render 'new'
     end
