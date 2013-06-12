@@ -17,12 +17,12 @@
 
 
           <div>
-            <%= label_tag :title %><br />
+            <%= label_tag :title %>
             <%= text_field_tag :title %>
           </div>
 
           <div>
-            <%= label_tag :topic_id %><br />
+            <%= label_tag :topic_id %>
             <%= select_tag :topic_id, options_from_collection_for_select(Topic.all, :id, :title) %>
           </div>
 
@@ -34,12 +34,6 @@
           </div>
 
       <div class="span5">
-        <div class="fyi">
-          <h4>Here's the haps on facts, Yo! MTV Raps!</h4>
-          <p>So I have to tell you something but promise you won't be mad. This section is reserved for the most ballinest of ballers.</p>
-
-          <p>Snacks on snacks on snacks. PM class is cooler than AM class. Something something, exceptional escorts eat escargot.</p>
-        </div>
       </div>
 
     </div><!--end content -->

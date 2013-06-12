@@ -3,7 +3,7 @@
     <div class="span3">
       <div class="module">
         <p id="notice"><%= notice %></p>
-        <h2 class="m0"><%= @user.username %><br />
+        <h2 class="m0 pink"><%= @user.username %><br />
           <% if User.find_by_id(session[:user_id]) == User.find_by_id(params[:id]) %>
           <span class="details">( <%= link_to 'Edit Your Profile', edit_user_path(@user) %> )</span>
           </h2>
@@ -19,7 +19,7 @@
       <div class="user_score clearfix">
         <div class="score_holder pull-left">
           <h5>Score:</h5>
-          <h2><%= @user.total_points(@articles) %></h2>
+          <h2 class="pink"><%= @user.total_points(@articles) %></h2>
         </div>
         <div class="score_holder pull-left">
           <h2>=</h2>
@@ -27,7 +27,7 @@
 
         <div class="score_holder pull-left">
           <h5>Submission Points:</h5>
-          <h2> <%= @user.submission_points(@articles) %></h2>
+          <h2 class="pink"> <%= @user.submission_points(@articles) %></h2>
         </div>
         <div class="score_holder pull-left">
           <h2>+</h2>
@@ -35,7 +35,7 @@
 
         <div class="score_holder pull-left">
           <h5>Vote Points:</h5>
-          <h2>
+          <h2 class="pink">
             <%= @user.vote_points(@articles) %>
           </h2>
         </div>
@@ -49,7 +49,7 @@
         </ul>
       <div class="tab-content">
         <div class="tab-pane active module-style" id="tab1">
-          <h2>Voted Articles</h2>
+          <h2  class="pink">Voted Articles</h2>
           <ul class="unstyled">
           <% @votes.each do |v| %>
             <li><%= link_to v.article.title, v.article.url %></li>
@@ -57,7 +57,7 @@
         </ul>
         </div>
         <div class="tab-pane module-style" id="tab2">
-          <h2>Submitted Articles:</h2>
+          <h2 class="pink">Submitted Articles:</h2>
           <ul class="unstyled">
             <% @articles.each do |a| %>
               <li><%= link_to a.title, a.url %> <span class="details">(<%= link_to "edit", edit_article_url(a) %> | <%= link_to "delete", article_url(a), method: :delete, notice: "Are you positive that you want to delete this article?" %>)</span></li>

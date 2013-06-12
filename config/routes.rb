@@ -7,7 +7,7 @@ Patchwork::Application.routes.draw do
   get "/home" => "Pages#home", as: "home"
   get "/blog" => "Pages#blog", as: "blog"
 
-  root :to => "Topics#index"
+  root :to => "Pages#home"
 
   get "/signin" => "Sessions#new", as: "new_session"
   post "/sessions" => "Sessions#create"
