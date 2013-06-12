@@ -14,5 +14,4 @@ class Vote < ActiveRecord::Base
     a.save
   end
 
-
 end

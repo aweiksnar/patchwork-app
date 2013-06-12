@@ -21,5 +21,4 @@ class Topic < ActiveRecord::Base
       return ""
     end
   end
-
 end

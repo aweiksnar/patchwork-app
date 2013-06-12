@@ -8,6 +8,8 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+.table-striped tbody>tr:nth-child(odd)>td,.table-striped tbody>tr:nth-child(odd)>th{background-color:#f9f9f9}
+
 .clearfix {
   *zoom: 1;
 }
@@ -2009,11 +2011,12 @@ table {
 
 .table th,
 .table td {
-  padding: 8px;
+  padding: 9px;
   line-height: 20px;
   text-align: left;
   vertical-align: top;
   border-top: 1px solid #dddddd;
+  color: #454A55;
 }
 
 .table th {

@@ -1,39 +1,39 @@
-<div class="container">
+<div class="indexed">
+  <div class="container">
+    <h1>Articles
+    <%= link_to 'Add a New Article', new_article_url, :class => "btn btn-success" %></h1>
 
-  <h1>Articles</h1>
+    <table class="table indexed-container">
+      <thead>
+        <tr>
+          <th>Article title</th>
+          <th>Description</th>
+          <th>Subtopic</th>
+          <th>Level</th>
+          <th>Number of Votes</th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <p><%= link_to 'Add a New Article', new_article_url %></p>
+      <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, article.url %></td>
+          <td><%= article.description %></td>
+          <td><%= article.subtopic.title %></td>
+          <td><%= article.display_level %></td>
+          <td><%= article.number_of_votes %></td>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Article title</th>
-        <th>Description</th>
-        <th>Subtopic</th>
-        <th>Level</th>
-        <th>Number of Votes</th>
-        <th></th>
-      </tr>
-    </thead>
+          <% if (article.user_id == session[:user_id] && session[:user_id].present?) || User.find_by_id(session[:user_id]).present? && User.find_by_id(session[:user_id]).admin == true %>
+            <td><%= link_to 'Show', article_url(article) %></td>
+            <td><%= link_to 'Edit', edit_article_url(article) %></td>
+            <td><%= link_to 'Destroy', article_url(article), method: 'delete', data: { confirm: "Do you really want to delete this article?" } %></td>
+          <% end %>
 
-    <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= link_to article.title, article.url %></td>
-        <td><%= article.description %></td>
-        <td><%= article.subtopic.title %></td>
-        <td><%= article.display_level %></td>
-        <td><%= article.number_of_votes %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-        <% if (article.user_id == session[:user_id] && session[:user_id].present?) || User.find_by_id(session[:user_id]).present? && User.find_by_id(session[:user_id]).admin == true %>
-          <td><%= link_to 'Show', article_url(article) %></td>
-          <td><%= link_to 'Edit', edit_article_url(article) %></td>
-          <td><%= link_to 'Destroy', article_url(article), method: 'delete', data: { confirm: "Do you really want to delete this article?" } %></td>
-        <% end %>
-
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-
+  </div>
 </div>

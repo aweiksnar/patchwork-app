@@ -12,6 +12,18 @@
  *= require_tree .
  */
 
+.indexed {
+  background-color: #BCD3DE;
+  background-size: 100%;
+  font-size: 15px;
+  margin-top: -40px;
+  padding-top: 50px;
+}
+
+.indexed-container {
+  background-color: #fff;
+}
+
 ol.welcome-list {font-weight:bold; margin: 0 0 0 25px;}
 
 .cursive {font-family: 'Courgette',cursive; font-weight: lighter;}
@@ -86,13 +98,13 @@ footer h4 {text-decoration: underline;}
   padding: 15px;
 }
 
-.welcome-arrow {background:url(welcome-up.png) no-repeat 0 0; height: 400px; position:relative; width: 670px;}
+.welcome-arrow {background:url(welcome-up.png) no-repeat 75px 0; height: 400px; position:relative; width: 670px;}
 .levels-arrow {background:url(welcome-right.png) no-repeat 510px 0; height: 400px; position:relative; width: 670px;}
-#step1 {left: 30px; position: absolute; top: 150px;}
+#step1 {left: 120px; position: absolute; top: 150px;}
 #step2 {right: 10px; position: absolute; top: 90px;}
 
 
-#article_description {height: 110px;}
+#article_description {height: 100px;}
 #new_article {margin:0;}
 form div {margin-bottom: 20px;}
 form div .btn-success {width:82%;}

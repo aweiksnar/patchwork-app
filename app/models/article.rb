@@ -8,18 +8,18 @@ class Article < ActiveRecord::Base
   has_many :users, :through => :votes
 
   def display_level
-    l =  Article.find_by_level(self.level).level
-    if l == 1
+    skill_level = Article.find_by_level(self.level).level
+    if skill_level == 1
       return "Beginner"
-    elsif l == 2
+    elsif skill_level == 2
       return "Intermediate"
-    elsif l == 3
+    elsif skill_level == 3
       return "Advanced"
     else
       return "No Level Selected"
     end
   end
-  #removed titles from validations
+
   validates :title, :description, :url, :presence => true
 
 end
