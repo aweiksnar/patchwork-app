@@ -122,3 +122,36 @@ form div .btn-success {width:82%;}
 .intro-show {background: url(more.png) no-repeat 7px 3px #BCD3DE;}
 .intro-hide {background: url(less.png) no-repeat 7px 3px #BCD3DE;}
 
+
+
+/* Home background-color:#F57676;*/
+#home-banner {
+  background-color:#fff;
+  min-height:505px;
+  padding: 170px 0;
+
+}
+
+#home-banner-overlay {
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  background: url(welcome-up.png) no-repeat 95px top;
+  height:550px;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 999;}
+#home-banner-overlay:hover {opacity: 1;}
+
+#home-banner h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 3.5em;
+  font-weight:lighter;
+  }
+
+#browse-topics {background-color: #fff;}
+
+
+
