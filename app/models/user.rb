@@ -13,6 +13,16 @@ class User < ActiveRecord::Base
     user.email = user.email.downcase
   end
 
+  # validates :password, :length => {:minimum => 6 }, :presence => true
+
+  validate :password_must_be_6_chars
+
+  def password_must_be_6_chars
+    unless self.password.length >= 6
+      errors.add(:password, " must be at least 6 characters long")
+    end
+  end
+
   def vote_points(articles)
     if articles == []
       return 0
