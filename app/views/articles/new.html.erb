@@ -25,6 +25,9 @@
             <%= f.text_field :url, "placeholder" => 'ex. http://absoluteshakespeare.com/trivia/quotes/quotes.htm' %>
           </div>
 
+          <%= f.hidden_field :user_id, value: "#{session[:user_id]}" %>
+
+
           <div>
             <%= f.label :description, "Why this resource?" %>
             <%= f.text_area :description, "placeholder" => "Tell everyone why this resource is great." %>
