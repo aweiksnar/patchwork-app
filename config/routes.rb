@@ -1,4 +1,7 @@
 Patchwork::Application.routes.draw do
+
+  root :to => "Pages#home"
+
   resources :users
   resources :votes
 
@@ -7,7 +10,6 @@ Patchwork::Application.routes.draw do
   get "/home" => "Pages#home", as: "home"
   get "/blog" => "Pages#blog", as: "blog"
 
-  root :to => "Topics#index"
 
   get "/signin" => "Sessions#new", as: "new_session"
   post "/sessions" => "Sessions#create"

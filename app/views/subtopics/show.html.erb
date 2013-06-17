@@ -8,19 +8,14 @@
     <tr>
       <th>Rank</td>
       <th>Article Title</td>
-      <th></td>
-      <th></td>
-      <th></td>
     </tr>
 
-    <% @subtopic.articles.where(:level => params[:level]).each do |x| %>
+    <% @subtopic.articles.where(:level => params[:level]).each do |article| %>
 
     <tr>
-      <td><%= x.id %></td>
-      <td><%= link_to x.title, x.url %></td>
-      <td><%= link_to "Share On Facebook", "http://www.facebook.com" %></td>
-      <td><%= link_to "Let Me Twitta That", "http://www.twitter.com" %></td>
-      <td><%= link_to "Friendster", "http://www.youtube.com/watch?v=oHg5SJYRHA0" %></td>
+      <td><%= article.id %></td>
+      <td><%= link_to article.title, article.url %></td>
+
     </tr>
 
     <% end %>

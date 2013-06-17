@@ -25,6 +25,9 @@
             <%= f.text_field :url, "placeholder" => 'ex. http://absoluteshakespeare.com/trivia/quotes/quotes.htm' %>
           </div>
 
+          <%= f.hidden_field :user_id, value: "#{session[:user_id]}" %>
+
+
           <div>
             <%= f.label :description, "Why this resource?" %>
             <%= f.text_area :description, "placeholder" => "Tell everyone why this resource is great." %>
@@ -48,13 +51,8 @@
       </div>
 
       <div class="span5">
-        <div class="fyi">
-          <h4>Here's the haps on facts, Yo! MTV Raps!</h4>
-          <p>So I have to tell you something but promise you won't be mad. This section is reserved for the most ballinest of ballers.</p>
-
-          <p>Snacks on snacks on snacks. PM class is cooler than AM class. Something something, exceptional escorts eat escargot.</p>
-        </div>
       </div>
+
     </div><!-- Content end -->
   </div>
   </div>
