@@ -8,6 +8,6 @@ class PagesController < ApplicationController
   end
 
   def home
-    @topics = Topic.all
+
   end
 end

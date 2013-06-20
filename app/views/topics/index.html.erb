@@ -3,7 +3,10 @@
     <h1>Topics
     <%= link_to 'Add a New Topic', new_topic_url, :class => "btn btn-success" %></h1>
 
-    <%= notice %>
+    <% if notice.present? %>
+      <div class="alert"><%= notice %></div>
+    <% end %>
+
     <table class="table indexed-container">
       <thead>
         <tr>

@@ -9,12 +9,20 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="content">
 
+      <div class="content">
       <div class="span7">
+      <% if @topic.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+            <% @topic.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
         <%= form_tag(topics_url, method: 'post') do %>
-
           <div>
             <%= label_tag :title, "What topic would you like to submit?" %>
             <%= text_field_tag :title, nil, 'placeholder' => 'Please add a subtopic or resource within it.' %>
