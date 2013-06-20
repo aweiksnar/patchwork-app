@@ -9,8 +9,7 @@ class Topic < ActiveRecord::Base
   has_many :articles, through: :subtopics
   belongs_to :category
 
-  validates :title, :uniqueness => true
-  validates :title, :presence => true
+  validates :title, :presence => true, :uniqueness => { :message => " already exists."}
 
   def scrape_description(wiki_url)
     if wiki_url.present?

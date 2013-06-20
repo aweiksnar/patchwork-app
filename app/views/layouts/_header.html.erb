@@ -36,6 +36,7 @@
       <% else %>
         <li><a href="#login_form" data-toggle="modal" data-target="#login-form">Login</a></li>
       <% end %>
+
       <% if session[:user_id].present? == false %>
         <li><%= link_to 'Sign Up', new_user_url %></li>
       <% end %>
