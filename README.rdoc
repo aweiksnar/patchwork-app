@@ -1,6 +1,6 @@
-== Patchwork
+== Patchlearn
 
-Patchwork is a web-app designed to help users learn more about their intrests. Users can view and submit resources to various topics. Users can vote on the best submissions and browse based on if they are a beginner, intermediate or advanced user.
+Patchlearn is a web-app designed to help users learn more about their intrests. Users can view and submit resources to various topics. Users can vote on the best submissions and browse based on if they are a beginner, intermediate or advanced user.
 
 ==Why
 
