@@ -3,11 +3,18 @@ class UsersController < ApplicationController
   # GET /users.json
 
   before_filter :authorize_user, only: [:edit, :update, :destroy]
+  before_filter :authorize_admin, only: [:index]
 
   def authorize_user
     @user = User.find_by_id(params[:id])
     if @user != User.find_by_id(session[:user_id])
       redirect_to topics_url, notice: "You are not authorized to perform this action."
+    end
+  end
+
+  def authorize_admin
+    unless User.find_by_id(session[:user_id]).present? && User.find_by_id(session[:user_id]).admin == true
+      redirect_to root_url, notice: "Gotta be an admin for that"
     end
   end
 
@@ -87,6 +94,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    reset_session
 
     respond_to do |format|
       format.html { redirect_to users_url }
